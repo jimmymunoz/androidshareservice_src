@@ -8,13 +8,11 @@ import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
 import android.os.AsyncTask;
 import android.os.Bundle;
-import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
-import android.widget.EditText;
 import android.widget.ListView;
 import android.widget.Toast;
 
@@ -27,7 +25,6 @@ import java.util.ArrayList;
 import Config.ConstValue;
 import adapters.ConversationAdapter;
 import ikbal_jimmy.shareservices.Conversation;
-import ikbal_jimmy.shareservices.ConversationsActivity;
 import ikbal_jimmy.shareservices.R;
 import ikbal_jimmy.shareservices.RestHelper;
 

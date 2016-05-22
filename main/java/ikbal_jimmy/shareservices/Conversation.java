@@ -16,7 +16,7 @@ public class Conversation {
     public String total_messages;
     public String total_readed;
 
-    Conversation(String id_conversation, String id_reciver, String id_sender, String sender_pseudo, String reciver_pseudo, String text, String readed, String read_date, String send_date, String total_messages, String total_readed){
+    public Conversation(String id_conversation, String id_reciver, String id_sender, String sender_pseudo, String reciver_pseudo, String text, String readed, String read_date, String send_date, String total_messages, String total_readed){
         this.id_conversation = id_conversation;
         this.id_reciver = id_reciver;
         this.id_sender = id_sender;

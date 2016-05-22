@@ -3,86 +3,96 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context="fragments.ServiceDetailFragment">
-
-
-    <Button
-        android:id="@+id/button"
-        android:layout_width="137dp"
-        android:layout_height="60dp"
-        android:text="Contacter le fournisseur "
-        android:background="#187887"
-        android:textColor="@android:color/white"
-        android:layout_alignParentRight="true"
-        android:layout_alignParentEnd="true"
-        android:layout_gravity="left|center_vertical" />
-
-    <LinearLayout
-        android:layout_width="369dp"
-        android:layout_height="181dp"
-        android:layout_alignTop="@+id/imageIcon"
-        android:layout_toRightOf="@+id/imageIcon"
-        android:orientation="vertical"
-        android:layout_gravity="center_horizontal|top">
-        titreservice
-        <TextView
-            android:id="@+id/titreservice"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="service"
-            android:textSize="@dimen/font_size_big" />
-        <TextView
-            android:id="@+id/titrecategory"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="category"
-            android:textSize="@dimen/font_size_big" />
-        <TextView
-            android:id="@+id/adresseservice"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="adress"
-            android:textSize="@dimen/font_size_big" />
-        <TextView
-            android:id="@+id/descriptionservice"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="descripton"
-            android:textSize="@dimen/font_size_big" />
-        <TextView
-            android:id="@+id/priceservice"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="prix "
-            android:textSize="@dimen/font_size_big" />
-
-    </LinearLayout>
-
-    <Button
-        android:id="@+id/Button_paiment"
-        android:layout_width="155dp"
-        android:layout_height="60dp"
-        android:text="Paiment "
-        android:background="#187887"
-        android:textColor="@android:color/white"
-        android:layout_alignParentRight="true"
-        android:layout_alignParentEnd="true"
-        android:layout_gravity="right|center_vertical" />
-
-    <RelativeLayout
+    <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_gravity="center">
+        android:layout_height="match_parent">
 
-        <ImageView
-            android:layout_width="wrap_content"
+        <LinearLayout
+            android:layout_width="fill_parent"
             android:layout_height="wrap_content"
-            android:id="@+id/imageView2"
-            android:layout_alignParentTop="true"
-            android:layout_alignParentLeft="true"
-            android:layout_alignParentStart="true"
-            android:layout_marginLeft="119dp"
-            android:layout_marginStart="119dp" />
-    </RelativeLayout>
+            android:orientation="vertical"
+            android:weightSum="1">
+            <ImageView
+                android:id="@+id/imageView1"
+                android:layout_width="match_parent"
+                android:layout_height="132dp"
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentTop="true"
+                android:src="@drawable/ic_launcher"
+                android:scaleType="centerCrop"
+                android:layout_weight="1.19" />
+
+            <TextView
+                android:id="@+id/titreservice"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="service"
+                android:textSize="@dimen/font_size_big"
+                android:layout_gravity="center_horizontal" />
+
+            <TextView
+                android:id="@+id/titrecategory"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="category"
+                 />
+
+            <TextView
+                android:id="@+id/adresseservice"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="adress"
+                />
+
+            <TextView
+                android:id="@+id/priceservice"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="prix "
+                android:layout_gravity="right" />
+
+            <TextView
+                android:id="@+id/descriptionservice"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="descripton"
+                android:layout_weight="3.01" />
+
+            <Button
+                android:id="@+id/Button_paiment"
+                android:layout_width="155dp"
+                android:layout_height="60dp"
+                android:layout_marginLeft="20dp"
+                android:layout_marginRight="20dp"
+                android:text="Paiment "
+                android:layout_marginTop="30dp"
+                android:background="#187887"
+                android:textColor="@android:color/white"
+                android:layout_gravity="center_horizontal" />
+
+            <EditText
+                android:id="@+id/editText1"
+                android:layout_width="match_parent"
+                android:layout_height="60dp"
+                android:layout_margin="20dp"
+                android:ems="10"
+                android:hint="Votre commentaire"
+                android:inputType="textMultiLine" >
+
+                <requestFocus />
+            </EditText>
 
 
+            <Button
+                android:id="@+id/button_start_coneration"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="20dp"
+                android:layout_marginRight="20dp"
+                android:text="Envoyer un message au fournisseur"
+                android:background="@drawable/xml_btn_blue"
+                android:textColor="@android:color/white" />
+
+        </LinearLayout>
+    </ScrollView>
 </FrameLayout>

@@ -46,7 +46,7 @@ public class SearchFragment extends Fragment{
         final View rootView = inflater.inflate(R.layout.activity_activity_search, container, false);
         act =getActivity();
         settings = act.getSharedPreferences(ConstValue.MAIN_PREF, 0);
-
+        //setTitle("Recherche par nom:" );
 
 
 

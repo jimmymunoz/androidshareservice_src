@@ -15,10 +15,10 @@
             <ImageView
                 android:id="@+id/imageView1"
                 android:layout_width="match_parent"
-                android:layout_height="132dp"
+                android:layout_height="160dp"
                 android:layout_alignParentLeft="true"
                 android:layout_alignParentTop="true"
-                android:src="@drawable/ic_launcher"
+                android:src="@drawable/laverie"
                 android:scaleType="centerCrop"
                 android:layout_weight="1.19" />
 

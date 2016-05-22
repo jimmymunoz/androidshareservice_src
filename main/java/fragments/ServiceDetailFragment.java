@@ -25,7 +25,7 @@ public class ServiceDetailFragment extends android.app.Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
 
-        final View rootView = inflater.inflate(R.layout.activity_activity_search, container, false);
+        final View rootView = inflater.inflate(R.layout.fragment_service_detail, container, false);
         rootView.findViewById(R.id.button_tmp_navigation).
             setOnClickListener(new View.OnClickListener() {
                 @Override

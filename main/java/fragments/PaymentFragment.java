@@ -22,7 +22,7 @@ public class PaymentFragment extends android.app.Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        final View rootView = inflater.inflate(R.layout.activity_activity_search, container, false);
+        final View rootView = inflater.inflate(R.layout.fragment_payment, container, false);
         rootView.findViewById(R.id.button_tmp_navigation).
                 setOnClickListener(new View.OnClickListener() {
                     @Override

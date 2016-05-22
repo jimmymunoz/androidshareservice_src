@@ -8,17 +8,23 @@ import android.net.NetworkInfo;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.View;
+import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
 import org.json.JSONException;
 import org.json.JSONObject;
 
+import java.util.HashMap;
+
 import Config.ConstValue;
 
 public class OrderDetailActivity extends Activity {
     String id_order;
     Context myContext;
+    public static String id_reciver = "";
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -38,6 +44,39 @@ public class OrderDetailActivity extends Activity {
         else {
             Toast.makeText(myContext, "No network connection available.", Toast.LENGTH_LONG).show();
         }
+        findViewById(R.id.button2).
+            setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    Intent intent = new Intent(myContext, MainActivity.class);
+                    //intent.putExtra("id_conversation", conversation.id_conversation);
+                    //intent.putExtra("id_reciver", conversation.id_reciver);
+                    myContext.startActivity(intent);
+                }
+            });
+
+        findViewById(R.id.button_start_coneration).
+                setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        EditText editTextMessage = (EditText) findViewById(R.id.editText1);
+                        String messageText = editTextMessage.getText().toString();
+
+                        if (messageText.length() > 0) {//Validation Message
+
+                            ConnectivityManager connMgr = (ConnectivityManager) getSystemService(Context.CONNECTIVITY_SERVICE);
+                            NetworkInfo networkInfo = connMgr.getActiveNetworkInfo();
+                            if (networkInfo != null && networkInfo.isConnected()) {
+                                editTextMessage.setText("");//Clear message
+                                new HttpSendMessageTask().execute(messageText, id_reciver);
+                            } else {
+                                Toast.makeText(myContext, "No network connection available.", Toast.LENGTH_LONG).show();
+                            }
+                        } else {
+                            Toast.makeText(myContext, "Le message ne peut pas être vide", Toast.LENGTH_LONG).show();
+                        }
+                    }
+                });
 
     }
 
@@ -155,6 +194,7 @@ public class OrderDetailActivity extends Activity {
                     TextView provider_emaiTmp = (TextView) findViewById(R.id.textViewprovider_emai);
                     provider_emaiTmp.setText("Fournisseur email: " + tmpObj.provider_email);
 
+                    OrderDetailActivity.id_reciver = tmpObj.id_provider;
                 }
 
 
@@ -164,6 +204,45 @@ public class OrderDetailActivity extends Activity {
             }
 
 
+        }
+    }
+
+    private class HttpSendMessageTask extends AsyncTask<String, Void, String> {
+        private HashMap<String,String> paramspost = new HashMap<String,String>();
+        String id_conversation;
+
+        @Override
+        protected String doInBackground(String... params) {
+            String urladress = ConstValue.WEB_SERVICE_URL + "messages";
+            //id_user_logged = params[3];
+            paramspost.put("text", params[0]);
+            paramspost.put("id_reciver",params[1]);
+            //paramspost.put("id_user_logged",params[3]);
+
+            Log.d("Post ", "Request params :" + params[0] + " - " + params[1] + " -");
+            String responsePost = RestHelper.executePOST(urladress, paramspost);
+            Log.d("Post", "Response  :" + responsePost);
+            return responsePost;
+        }
+
+        // onPostExecute displays the results of the AsyncTask.
+        @Override
+        protected void onPostExecute(String responseUrl) {
+            try {
+                JSONObject jsonRootObject = new JSONObject(responseUrl);
+                if( jsonRootObject.optString("error").toString().equals("1") ){
+                    Toast.makeText(myContext, "Error :" + jsonRootObject.optString("message").toString(), Toast.LENGTH_LONG).show();
+                }
+                else{
+                    Toast.makeText(myContext, "Message envoyé: " + jsonRootObject.optString("message").toString(), Toast.LENGTH_LONG).show();
+                    Intent intent = new Intent(myContext, ConversationsActivity.class);
+                    myContext.startActivity(intent);
+                    //new HttGetConversationMessagesTask().execute(id_conversation, id_user_logged);
+                }
+
+            } catch (JSONException e) {
+                e.printStackTrace();
+            }
         }
     }
 

@@ -3,7 +3,6 @@ package fragments;
 import android.app.Activity;
 import android.app.Fragment;
 import android.app.FragmentManager;
-import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.AsyncTask;
 import android.os.Bundle;
@@ -100,20 +99,8 @@ public class ServicesFragment extends Fragment{
 			public void onItemClick(AdapterView<?> arg0, View arg1, int arg2,
 									long arg3) {
 				// TODO Auto-generated method stub
-				settings.edit().putString("choosen_date", null).commit();
-					/*
-					settings.edit().putString("choosen_time", null).commit();
-							ConstValue.selected_service = service_array.get(arg2);
-							Intent intent = new Intent(act,BookAppointmentActivity.class);
-							startActivity(intent);
+					settings.edit().putString("choosen_date", null).commit();
 
-String  id_category = service_array.get(arg2).get("id_category_service");
-				Toast.makeText(getActivity(), "id_categoory"+service_array.get(arg2).get("id_category_service"), Toast.LENGTH_LONG).show();
-				Intent intent = new Intent(getActivity(), ServiceCategoryFragment.class);
-				intent.putExtra("id_category",id_category);
-				getActivity().startActivity(intent);
-
-					*/
 					String  id_category = service_array.get(arg2).get("id_category_service");
 					Fragment fragment = new ServiceCategoryFragment();
 
@@ -123,9 +110,6 @@ String  id_category = service_array.get(arg2).get("id_category_service");
 					//args.putInt(PlanetFragment.ARG_PLANET_NUMBER, position);
 					FragmentManager fragmentManager = getFragmentManager();
 					fragmentManager.beginTransaction().replace(R.id.content_frame, fragment).commit();
-
-
-
 			}
 		});
 
@@ -237,27 +221,12 @@ String  id_category = service_array.get(arg2).get("id_category_service");
 	public static ArrayList<HashMap<String,String>> getLocalCategoryServices(){
 		ArrayList<HashMap<String,String>> category_service_array = new ArrayList<HashMap<String,String>>();
 
-
-
-
-
-
-		/*
-		HashMap myMap = new HashMap<String, String>();
-		myMap.clear();
-		myMap.put("id_category_service", "b");
-		myMap.put("name", "Carpet Cleaning");
-		myMap.put("image", "1422868163.jpg");
-		myMap.put("status", "1");
-		myMap.put("order", "1");
-		category_service_array.add(myMap);
-		*/
-String  id_category_service;
-String  name;
+		String  id_category_service;
+		String  name;
 		category_service_array.add(
 				new HashMap<String, String>() {{
 					put("id_category_service", "8");
-					put("name", "Housecleaning Service");
+					put("name", "Service de nettoyage Maison");
 					put("image", "1423488992.jpg");
 					put("status", "1");
 					put("order", "0");
@@ -266,7 +235,7 @@ String  name;
 		category_service_array.add(
 				new HashMap<String, String>() {{
 					put("id_category_service", "1");
-					put("name", "Appliance Repair");
+					put("name", "Réparation d'appareils");
 					put("image", "1422618574serviceappliancerepair2x.jpg");
 					put("status", "1");
 					put("order", "0");
@@ -276,7 +245,7 @@ String  name;
 		category_service_array.add(
 				new HashMap<String, String>() {{
 					put("id_category_service", "2");
-					put("name", "Carpet Cleaning Service");
+					put("name", "Nettoyage");
 					put("status", "1");
 					put("image", "1422868163.jpg");
 					put("order", "0");
@@ -286,7 +255,7 @@ String  name;
 		category_service_array.add(
 				new HashMap<String, String>() {{
 					put("id_category_service", "3");
-					put("name", "Electrical Services");
+					put("name", "Electricité");
 					put("image", "1423488805.jpg");
 					put("status", "1");
 					put("order", "0");
@@ -296,7 +265,7 @@ String  name;
 		category_service_array.add(
 				new HashMap<String, String>() {{
 					put("id_category_service", "4");
-					put("name", "Garagedoor Service");
+					put("name", "Poubelles");
 					put("image", "1423488846.jpg");
 					put("status", "1");
 					put("order", "0");
@@ -306,7 +275,7 @@ String  name;
 		category_service_array.add(
 				new HashMap<String, String>() {{
 					put("id_category_service", "5");
-					put("name", "Handyman Service");
+					put("name", "Bricolare");
 					put("image", "1423488877.jpg");
 					put("status", "1");
 					put("order", "0");
@@ -316,7 +285,7 @@ String  name;
 		category_service_array.add(
 				new HashMap<String, String>() {{
 					put("id_category_service", "6");
-					put("name", "Heating & AC Service");
+					put("name", "Chauffage ");
 					put("image", "1423488922.jpg");
 					put("status", "1");
 					put("order", "0");
@@ -326,7 +295,7 @@ String  name;
 		category_service_array.add(
 				new HashMap<String, String>() {{
 					put("id_category_service", "7");
-					put("name", "Holiday Lighting Service");
+					put("name", "Lumière");
 					put("image", "1423488957.jpg");
 					put("status", "1");
 					put("order", "0");
@@ -336,7 +305,7 @@ String  name;
 		category_service_array.add(
 				new HashMap<String, String>() {{
 					put("id_category_service", "8");
-					put("name", "Housecleaning Service");
+					put("name", "Service de nettoyage Maison");
 					put("image", "1423488992.jpg");
 					put("status", "1");
 					put("order", "0");
@@ -346,7 +315,7 @@ String  name;
 		category_service_array.add(
 				new HashMap<String, String>() {{
 					put("id_category_service", "9");
-					put("name", "Plumbing Service");
+					put("name", "Service Plomberie");
 					put("image", "1423489020.jpg");
 					put("status", "1");
 					put("order", "0");
@@ -356,62 +325,13 @@ String  name;
 		category_service_array.add(
 				new HashMap<String, String>() {{
 					put("id_category_service", "10");
-					put("name", "Moving Service");
+					put("name", "Service de déménagement");
 					put("image", "1424064244.jpg");
 					put("status", "1");
 					put("order", "0");
 				}}
 		);
 
-		category_service_array.add(
-				new HashMap<String, String>() {{
-					put("id_category_service", "11");
-					put("name", "tests");
-					put("image", "1431684589.jpg");
-					put("status", "0");
-					put("order", "0");
-				}}
-		);
-
-		category_service_array.add(
-				new HashMap<String, String>() {{
-					put("id_category_service", "12");
-					put("name", "TIGER");
-					put("image", "1432386101.jpg");
-					put("status", "1");
-					put("order", "0");
-				}}
-		);
-
-		category_service_array.add(
-				new HashMap<String, String>() {{
-					put("id_category_service", "13");
-					put("name", "Test");
-					put("image", "1434546052.jpg");
-					put("status", "0");
-					put("order", "0");
-				}}
-		);
-
-		category_service_array.add(
-				new HashMap<String, String>() {{
-					put("id_category_service", "14");
-					put("name", "Travels");
-					put("image", "1438527158.jpg");
-					put("status", "0");
-					put("order", "0");
-				}}
-	);
-
-		category_service_array.add(
-				new HashMap<String, String>() {{
-					put("id_category_service", "15");
-					put("name", "Travels");
-					put("image", "1438529797.jpg");
-					put("status", "0");
-					put("order", "0");
-				}}
-		);
 		return category_service_array;
 	}
 

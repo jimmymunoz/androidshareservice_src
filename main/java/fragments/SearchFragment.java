@@ -126,13 +126,13 @@ public class SearchFragment extends Fragment{
                     for(int i=0; i < jsonArray.length(); i++){
                         JSONObject jsonObject = jsonArray.getJSONObject(i);
                         ServiceShare tmpObj = new ServiceShare(
-                                jsonObject.optString("id_service").toString(),
-                                jsonObject.optString("titre").toString(),
-                                jsonObject.optString("active").toString(),
-                                jsonObject.optString("description").toString(),
-                                jsonObject.optString("address").toString(),
-                                jsonObject.optString("id_category_service").toString(),
-                                jsonObject.optString("price").toString()
+                            jsonObject.optString("id_service").toString(),
+                            jsonObject.optString("titre").toString(),
+                            jsonObject.optString("active").toString(),
+                            jsonObject.optString("description").toString(),
+                            jsonObject.optString("address").toString(),
+                            jsonObject.optString("id_category_service").toString(),
+                            jsonObject.optString("price").toString()
 
                         );
                         updatedListAdapterData.add(tmpObj);

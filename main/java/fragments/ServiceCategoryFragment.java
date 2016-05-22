@@ -3,7 +3,6 @@ package fragments;
 import android.app.Activity;
 import android.app.Fragment;
 import android.content.Context;
-import android.content.Intent;
 import android.content.SharedPreferences;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
@@ -24,10 +23,10 @@ import org.json.JSONObject;
 import java.util.ArrayList;
 
 import Config.ConstValue;
-import adapters.ServiceCategoryAdapter;
+import adapters.SearcheAdapter;
 import ikbal_jimmy.shareservices.R;
 import ikbal_jimmy.shareservices.RestHelper;
-import ikbal_jimmy.shareservices.ServiceCategory;
+import ikbal_jimmy.shareservices.ServiceShare;
 
 public class ServiceCategoryFragment extends Fragment {
     Activity act;
@@ -35,12 +34,14 @@ public class ServiceCategoryFragment extends Fragment {
     String id_category;
     String id_reciver;
     String id_user_logged;
-    static ArrayAdapter<ServiceCategory> adapter;
-    static ArrayList<ServiceCategory> arrayListData;
+    static ArrayAdapter<ServiceShare> adapter;
+    static ArrayList<ServiceShare> arrayListData;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
 
+        Bundle arg = this.getArguments();
+        String id_category = arg.getString("id_category");
 
         final View rootView = inflater.inflate(R.layout.activity_service_category, container, false);
 
@@ -49,14 +50,13 @@ public class ServiceCategoryFragment extends Fragment {
 
         //getActionBar().setIcon(R.drawable.app_icons_13);
 
-        arrayListData = new ArrayList<ServiceCategory>();
-        adapter = new ServiceCategoryAdapter(getActivity(), arrayListData);
+        arrayListData = new ArrayList<ServiceShare>();
+        adapter = new SearcheAdapter(act, arrayListData);
         ListView vue = (ListView) rootView.findViewById(R.id.service_category_list);
         vue.setAdapter(adapter);
 
-        Intent intentMain =getActivity().getIntent();
-        Bundle extras = intentMain.getExtras();
-        id_category = extras.getString("id_category");
+        Toast.makeText(act, "id_category."+id_category, Toast.LENGTH_LONG).show();
+
 
         ConnectivityManager connMgr = (ConnectivityManager) getActivity().getSystemService(Context.CONNECTIVITY_SERVICE);
         NetworkInfo networkInfo = connMgr.getActiveNetworkInfo();
@@ -70,7 +70,7 @@ public class ServiceCategoryFragment extends Fragment {
     }
 
 
-    public static void refreshArrayListViewData(ArrayList<ServiceCategory> UpdatedArrayListData){
+    public static void refreshArrayListViewData(ArrayList<ServiceShare> UpdatedArrayListData){
         arrayListData.clear();
         arrayListData.addAll(UpdatedArrayListData);
         adapter.notifyDataSetChanged();
@@ -82,7 +82,7 @@ public class ServiceCategoryFragment extends Fragment {
 
         @Override
         protected String doInBackground(String... params) {
-           String urladress = ConstValue.WEB_SERVICE_URL + "service?id_category="+id_category;
+           String urladress = ConstValue.WEB_SERVICE_URL + "services?id_category="+params[0];
 
             Log.d("Get", "request  :" + urladress);
             String responseServer = RestHelper.executeGET(urladress);
@@ -94,7 +94,7 @@ public class ServiceCategoryFragment extends Fragment {
         @Override
         protected void onPostExecute(String responseUrl) {
 
-            ArrayList<ServiceCategory> updatedListAdapterData = new ArrayList<ServiceCategory>();
+            ArrayList<ServiceShare> updatedListAdapterData = new ArrayList<ServiceShare>();
             try {
                 JSONObject jsonRootObject = new JSONObject(responseUrl);
                 if( jsonRootObject.optString("error").toString().equals("1") ){
@@ -105,18 +105,16 @@ public class ServiceCategoryFragment extends Fragment {
                     //Iterate the jsonArray and print the info of JSONObjects
                     for(int i=0; i < jsonArray.length(); i++){
                         JSONObject jsonObject = jsonArray.getJSONObject(i);
-                        ServiceCategory tmpObj = new ServiceCategory(
-                                jsonObject.optString("id_service").toString(),
-                                jsonObject.optString("titre").toString(),
-                                jsonObject.optString("active").toString(),
-                                jsonObject.optString("description").toString(),
-                                jsonObject.optString("id_category_service").toString()
-                        );
-                        /*
-                        jsonObject.optString("address").toString(),
+                        ServiceShare tmpObj = new ServiceShare(
+                            jsonObject.optString("id_service").toString(),
+                            jsonObject.optString("titre").toString(),
+                            jsonObject.optString("active").toString(),
+                            jsonObject.optString("description").toString(),
+                            jsonObject.optString("id_category_service").toString(),
+                            jsonObject.optString("address").toString(),
+                            jsonObject.optString("price").toString()
+                            );
 
-                        jsonObject.optString("price").toString()
-                        */
                         updatedListAdapterData.add(tmpObj);
                     }
                 }

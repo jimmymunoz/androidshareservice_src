@@ -5,6 +5,7 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Toast;
 
 import ikbal_jimmy.shareservices.R;
 
@@ -27,7 +28,7 @@ public class PaymentFragment extends android.app.Fragment {
                 setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
-                        android.app.Fragment fragment = new OrderResultFragment();
+                        android.app.Fragment fragment = new ServicesFragment();
 
                         Bundle args = new Bundle();
                         fragment.setArguments(args);
@@ -36,7 +37,7 @@ public class PaymentFragment extends android.app.Fragment {
                         fragmentManager.beginTransaction().replace(R.id.content_frame, fragment).commit();
                     }
                 });
-
+        Toast.makeText(getActivity(), "Votre Paiment  a été  pris  en compre ", Toast.LENGTH_LONG).show();
         return inflater.inflate(R.layout.fragment_payment, container, false);
     }
 

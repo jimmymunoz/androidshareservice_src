@@ -1,7 +1,12 @@
 package adapters;
 
+import android.app.Activity;
+import android.app.Fragment;
+import android.app.FragmentManager;
 import android.content.Context;
 import android.content.Intent;
+import android.os.Bundle;
+import android.support.v4.app.FragmentActivity;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -11,6 +16,7 @@ import android.widget.Toast;
 
 import java.util.ArrayList;
 
+import fragments.ServiceDetailFragment;
 import ikbal_jimmy.shareservices.Conversation;
 import ikbal_jimmy.shareservices.MessagesActivity;
 import ikbal_jimmy.shareservices.R;
@@ -19,7 +25,7 @@ import ikbal_jimmy.shareservices.ServiceShare;
 /**
  * Created by jimmymunoz on 11/05/16.
  */
-public class SearcheAdapter extends ArrayAdapter<ServiceShare> {
+public class SearcheAdapter extends ArrayAdapter<ServiceShare>  {
     Context myContext;
 
     public SearcheAdapter(Context context, ArrayList<ServiceShare> arrayListData) {
@@ -48,19 +54,22 @@ public class SearcheAdapter extends ArrayAdapter<ServiceShare> {
         TextView textview_messages = (TextView) convertView.findViewById(R.id.adresseservice);
         textview_messages.setText(serviceobj.getAdress());
 
-       /* convertView.setOnClickListener(new View.OnClickListener() {
+
+        convertView.setOnClickListener(new View.OnClickListener() {
 
             @Override
             public void onClick(View v) {
+            Fragment fragment = new ServiceDetailFragment();
                 //send conversation id
-                Intent intent = new Intent(myContext, MessagesActivity.class);
-                intent.putExtra("id_conversation", conversation.id_conversation);
-                intent.putExtra("id_reciver", conversation.id_reciver);
-                myContext.startActivity(intent);
-                Toast.makeText(myContext, "Load Messages, id_conversation: " + conversation.id_conversation, Toast.LENGTH_LONG).show();
+             Bundle args = new Bundle();
+					args.putString("id_service", serviceobj.getId_service());
+					fragment.setArguments(args);
+					//args.putInt(PlanetFragment.ARG_PLANET_NUMBER, position);
+					FragmentManager fragmentManager = ((Activity) myContext).getFragmentManager();
+					fragmentManager.beginTransaction().replace(R.id.content_frame, fragment).commit();
             }
         });
-*/
+
         return convertView;
     }
 

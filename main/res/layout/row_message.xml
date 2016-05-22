@@ -6,37 +6,44 @@
 
     <LinearLayout
         android:id="@+id/linearLayout1"
-        android:layout_width="wrap_content"
+        android:layout_width="368dp"
         android:layout_height="wrap_content"
         android:layout_alignParentLeft="true"
-        android:orientation="vertical"
-        android:weightSum="1">
+        android:orientation="vertical">
 
         <TextView
             android:id="@+id/textView1"
-            android:layout_width="368dp"
-            android:layout_height="match_parent"
-            android:text="TextView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Other user"
+            android:textSize="16dp"
             android:gravity="left"
-            android:textSize="16dp" />
+            android:layout_alignParentLeft="true"
+            android:textColor="#000000" />
 
         <TextView
             android:id="@+id/textView2"
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="TextView"
+            android:text="Message"
+            android:textSize="10dp"
             android:gravity="left"
-            android:textSize="10dp" />
+            android:layout_alignParentLeft="true"
+            android:textColor="#000000"
+            />
+
         <TextView
             android:id="@+id/textView3"
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_alignParentRight="true"
             android:textSize="10dp"
-            android:text="Status"
-            android:gravity="left" />
+            android:text="Date"
+            android:gravity="left"
+            android:layout_alignParentLeft="true"
+            android:textColor="#000000"
+            />
     </LinearLayout>
-
 
 
     <LinearLayout

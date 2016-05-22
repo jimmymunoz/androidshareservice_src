@@ -39,6 +39,9 @@ public class ServiceShare {
     private String category;
     private String prix;
 
+    public ServiceShare() {
+    }
+
     public ServiceShare(String id_service, String titre, String active, String adress, String description, String category, String prix) {
         this.id_service = id_service;
         this.titre = titre;

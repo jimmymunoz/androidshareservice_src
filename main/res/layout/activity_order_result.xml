@@ -1,0 +1,253 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:paddingBottom="@dimen/activity_vertical_margin"
+    android:paddingLeft="@dimen/activity_horizontal_margin"
+    android:paddingRight="@dimen/activity_horizontal_margin"
+    android:paddingTop="@dimen/activity_vertical_margin"
+    tools:context="com.servproapp.FinishActivity" >
+
+    <LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical" >
+        <ImageView
+            android:id="@+id/imageView1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/ic_launcher"
+            android:layout_gravity="center_horizontal" />
+
+        <TextView
+            android:id="@+id/textViewTitre"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="TextView"
+            android:layout_gravity="center_horizontal"
+            android:textSize="20dp" />
+
+        <TextView
+            android:id="@+id/textView1"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Merci pour acquerir le service"
+            android:textSize="20dp"
+            android:textAlignment="center"
+            android:layout_marginBottom="10dp" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:gravity="center_horizontal"
+            android:text="@string/Your_Comment"
+            android:textStyle="bold"
+            android:id="@+id/provider_pseudo" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:gravity="center_horizontal"
+            android:text="@string/Your_Comment"
+            android:textStyle="bold"
+            android:id="@+id/provider_pseudo" />
+
+        <EditText
+            android:id="@+id/editText1"
+            android:layout_width="match_parent"
+            android:layout_height="60dp"
+            android:layout_margin="20dp"
+            android:ems="10"
+            android:hint="@string/Your_comment_here"
+            android:inputType="textMultiLine" >
+
+            <requestFocus />
+        </EditText>
+
+        <Button
+            android:id="@+id/button_start_coneration"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="20dp"
+            android:layout_marginRight="20dp"
+            android:text="Send a message to provider"
+            android:background="@drawable/xml_btn_blue"
+            android:textColor="@android:color/white" />
+
+        <LinearLayout
+            android:id="@+id/linearLayout1"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="15dp"
+            android:background="@drawable/xml_button_normal_white"
+            android:orientation="vertical"
+            android:padding="20dp" >
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:text="Service Data"
+                android:textSize="18dp" />
+
+
+            <TextView
+                android:id="@+id/textViewpayment_code"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="xxx"
+                android:textSize="13dp" />
+
+            <TextView
+                android:id="@+id/textViewcode"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="xxx"
+                android:textSize="13dp" />
+
+            <TextView
+                android:id="@+id/textViewcode_notified"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="xxx"
+                android:textSize="13dp" />
+
+            <TextView
+                android:id="@+id/textViewcreated_at"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="xxx"
+                android:textSize="13dp" />
+
+            <TextView
+                android:id="@+id/textViewclient_pseudo"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="xxx"
+                android:textSize="13dp" />
+
+            <TextView
+                android:id="@+id/textViewclient_first_name"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="xxx"
+                android:textSize="13dp" />
+
+            <TextView
+                android:id="@+id/textViewclient_last_name"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="xxx"
+                android:textSize="13dp" />
+
+            <TextView
+                android:id="@+id/textViewclient_phone"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="xxx"
+                android:textSize="13dp" />
+
+            <TextView
+                android:id="@+id/textViewclient_email"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="xxx"
+                android:textSize="13dp" />
+
+            <TextView
+                android:id="@+id/textViewtitre"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="xxx"
+                android:textSize="13dp" />
+
+            <TextView
+                android:id="@+id/textViewdescription"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="xxx"
+                android:textSize="13dp" />
+
+            <TextView
+                android:id="@+id/textViewprice"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="xxx"
+                android:textSize="13dp" />
+
+            <TextView
+                android:id="@+id/textViewaddress"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="xxx"
+                android:textSize="13dp" />
+
+            <TextView
+                android:id="@+id/textViewcity"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="xxx"
+                android:textSize="13dp" />
+
+            <TextView
+                android:id="@+id/textViewprovider_pseudo"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="xxx"
+                android:textSize="13dp" />
+
+            <TextView
+                android:id="@+id/textViewprovider_first_name"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="xxx"
+                android:textSize="13dp" />
+
+            <TextView
+                android:id="@+id/textViewprovider_last_name"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="xxx"
+                android:textSize="13dp" />
+
+            <TextView
+                android:id="@+id/textViewprovider_phone"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="xxx"
+                android:textSize="13dp" />
+
+            <TextView
+                android:id="@+id/textViewprovider_emai"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="xxx"
+                android:textSize="13dp" />
+
+        </LinearLayout>
+
+        <TextView
+            android:id="@+id/textView2"
+            android:layout_width="wrap_content"
+            android:layout_height="62dp"
+            android:text="@string/finishNote" />
+
+        <LinearLayout
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content" >
+
+            <Button
+                android:id="@+id/button2"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="2dp"
+                android:layout_weight="1"
+                android:background="@drawable/xml_btn_blue"
+                android:text="@string/takemehome"
+                android:textColor="@android:color/white" />
+        </LinearLayout>
+    </LinearLayout>
+
+</RelativeLayout>

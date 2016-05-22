@@ -8,5 +8,26 @@
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
     tools:context="ikbal_jimmy.shareservices.UserOrdersActivity">
+    <ListView
+        android:id="@+id/orders_list"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_weight="1"
+        android:stackFromBottom="false"
+        android:transcriptMode="alwaysScroll" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal" >
+
+        <!--
+        <Button
+            android:id="@+id/button_send"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Return" />
+            -->
+    </LinearLayout>
 
 </RelativeLayout>

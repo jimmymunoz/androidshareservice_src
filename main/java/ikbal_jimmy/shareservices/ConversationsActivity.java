@@ -22,8 +22,6 @@ import adapters.ConversationAdapter;
 
 public class ConversationsActivity extends AppCompatActivity {
     Context myContext;
-    String id_conversation;
-    String id_reciver;
     String id_user_logged;
     static ArrayAdapter<Conversation> adapter;
     static ArrayList<Conversation> arrayListData;
@@ -33,8 +31,8 @@ public class ConversationsActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         myContext = this;
         setContentView(R.layout.activity_conversations);
-        id_user_logged = "1";//TODO: Get from Session
-        setTitle("Conversations");
+        id_user_logged = Authenticate.getIdUserLogged(myContext);
+        setTitle("Conversations " + Authenticate.getPseudo(myContext));
 
         //getActionBar().setIcon(R.drawable.app_icons_13);
 

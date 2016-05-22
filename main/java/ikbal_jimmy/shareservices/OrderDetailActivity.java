@@ -97,16 +97,21 @@ public class OrderDetailActivity extends Activity {
                     );
 
                     TextView tmp1 = (TextView) findViewById(R.id.textViewTitre);
-                    tmp1.setText("Code de Commande: " + tmpObj.code);
+                    tmp1.setText("Code de Commande: " + tmpObj.id_order);
+
+
+                    TextView textViewtitre = (TextView) findViewById(R.id.textViewtitre);
+                    textViewtitre.setText("Service: " + tmpObj.titre);
+
 
                     TextView descriptionTmp = (TextView) findViewById(R.id.textViewdescription);
-                    descriptionTmp.setText("Client pseudo: " + tmpObj.description);
+                    descriptionTmp.setText("" + tmpObj.description);
 
                     TextView payment_codeTmp = (TextView) findViewById(R.id.textViewpayment_code);
                     payment_codeTmp.setText(tmpObj.payment_code);
 
                     TextView codeTmp = (TextView) findViewById(R.id.textViewcode);
-                    codeTmp.setText("Code du payment: " + tmpObj.code);
+                    codeTmp.setText("Code de validation: (" + tmpObj.code + ")");
 
                     TextView created_atTmp = (TextView) findViewById(R.id.textViewcreated_at);
                     created_atTmp.setText("Date de commande: " + tmpObj.created_at);

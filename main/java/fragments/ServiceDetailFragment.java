@@ -2,14 +2,12 @@ package fragments;
 
 
 import android.app.Activity;
-import android.app.FragmentManager;
 import android.content.Context;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
-import android.support.v4.app.FragmentActivity;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -17,14 +15,12 @@ import android.view.ViewGroup;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
-import java.util.ArrayList;
+import java.util.HashMap;
 
 import Config.ConstValue;
-import ikbal_jimmy.shareservices.Conversation;
 import ikbal_jimmy.shareservices.R;
 import ikbal_jimmy.shareservices.RestHelper;
 import ikbal_jimmy.shareservices.ServiceShare;
@@ -41,6 +37,7 @@ public class ServiceDetailFragment extends android.app.Fragment {
     static TextView texteview_address;
     static TextView texteview_category;
     static TextView text_prix;
+    Context myContext;
 
     public ServiceDetailFragment() {
         // Required empty public constructor
@@ -49,7 +46,9 @@ public class ServiceDetailFragment extends android.app.Fragment {
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,Bundle savedInstanceState) {
+
         act = getActivity();
+        myContext = act;
         Bundle arg = this.getArguments();
         id_service = arg.getString("id_service");
         rootview2 = inflater.inflate(R.layout.fragment_service_detail, container, false);
@@ -59,6 +58,8 @@ public class ServiceDetailFragment extends android.app.Fragment {
                 setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
+
+                        /*
                         android.app.Fragment fragment = new PaymentFragment();
 
                         Bundle args = new Bundle();
@@ -66,6 +67,7 @@ public class ServiceDetailFragment extends android.app.Fragment {
                         //args.putInt(PlanetFragment.ARG_PLANET_NUMBER, position);
                         FragmentManager fragmentManager = getFragmentManager();
                         fragmentManager.beginTransaction().replace(R.id.content_frame, fragment).commit();
+                        */
                     }
                 });
 
@@ -145,6 +147,38 @@ public class ServiceDetailFragment extends android.app.Fragment {
 
 
 
+        }
+    }
+
+    private class HttpPayOrderTask extends AsyncTask<String, Void, String> {
+        private HashMap<String,String> paramspost = new HashMap<String,String>();
+
+        @Override
+        protected String doInBackground(String... params) {
+            String urladress = ConstValue.WEB_SERVICE_URL + "orders";
+            paramspost.put("id_service", params[0]);
+
+            Log.d("Post ", "Request params :" + params[0]);
+            String responsePost = RestHelper.executePOST(urladress, paramspost);
+            Log.d("Post", "Response  :" + responsePost);
+            return responsePost;
+        }
+
+        // onPostExecute displays the results of the AsyncTask.
+        @Override
+        protected void onPostExecute(String responseUrl) {
+            //Toast.makeText(myContext, "Regsiter Response :" + responseUrl, Toast.LENGTH_LONG).show();
+            try {
+                JSONObject jsonRootObject = new JSONObject(responseUrl);
+                if( jsonRootObject.optString("error").toString().equals("1") ){
+                    Toast.makeText(myContext, "Error :" + jsonRootObject.optString("message").toString(), Toast.LENGTH_LONG).show();
+                }
+                else{
+                    Toast.makeText(myContext, jsonRootObject.optString("message").toString(), Toast.LENGTH_LONG).show();
+                }
+            } catch (JSONException e) {
+                e.printStackTrace();
+            }
         }
     }
 }

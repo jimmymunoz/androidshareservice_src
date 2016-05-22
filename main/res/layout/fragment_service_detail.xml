@@ -26,7 +26,8 @@
                 android:id="@+id/titreservice"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="service"
+                android:text="Service de laverie"
+                android:textColor="#187887"
                 android:textSize="@dimen/font_size_big"
                 android:layout_gravity="center_horizontal" />
 
@@ -34,37 +35,37 @@
                 android:id="@+id/titrecategory"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="category"
+                android:text="Service de Netoyage"
                  />
 
             <TextView
                 android:id="@+id/adresseservice"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="adress"
+                android:text="230, Rue de triolet"
                 />
 
             <TextView
                 android:id="@+id/priceservice"
-                android:layout_width="wrap_content"
+                android:layout_width="74dp"
                 android:layout_height="wrap_content"
-                android:text="prix "
+                android:text="20 €"
                 android:layout_gravity="right" />
 
             <TextView
                 android:id="@+id/descriptionservice"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="descripton"
+                android:text="Service de laverie à docimicile à côte des universités à Montpellier"
                 android:layout_weight="3.01" />
 
             <Button
                 android:id="@+id/Button_paiment"
                 android:layout_width="155dp"
-                android:layout_height="60dp"
+                android:layout_height="wrap_content"
                 android:layout_marginLeft="20dp"
                 android:layout_marginRight="20dp"
-                android:text="Paiment "
+                android:text="Payer"
                 android:layout_marginTop="30dp"
                 android:background="#187887"
                 android:textColor="@android:color/white"
@@ -73,7 +74,7 @@
             <EditText
                 android:id="@+id/editText1"
                 android:layout_width="match_parent"
-                android:layout_height="60dp"
+                android:layout_height="wrap_content"
                 android:layout_margin="20dp"
                 android:ems="10"
                 android:hint="Votre commentaire"
@@ -86,7 +87,7 @@
             <Button
                 android:id="@+id/button_start_coneration"
                 android:layout_width="fill_parent"
-                android:layout_height="wrap_content"
+                android:layout_height="36dp"
                 android:layout_marginLeft="20dp"
                 android:layout_marginRight="20dp"
                 android:text="Envoyer un message au fournisseur"

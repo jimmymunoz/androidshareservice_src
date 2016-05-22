@@ -158,7 +158,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         searcheservice.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Toast.makeText(myContext, "Il rentre ", Toast.LENGTH_LONG).show();
+
 
                 Fragment fragment = new SearchFragment();
                 Bundle args = new Bundle();

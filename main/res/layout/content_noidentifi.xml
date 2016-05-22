@@ -14,6 +14,18 @@
 
     <Button
         android:id="@+id/sign_in"
+        android:layout_width="270dp"
+
+        android:layout_height="wrap_content"
+        android:text="S'authentifier"
+        android:textColor="@android:color/white"
+        android:background="#008080"
+        android:layout_marginTop="103dp"
+        android:layout_below="@+id/register"
+        android:layout_centerHorizontal="true" />
+    <!--
+    <Button
+        android:id="@+id/sign_in"
         android:text="Sign in"
         android:textColor="#FFFFFF"
         android:textSize="30sp"
@@ -28,7 +40,20 @@
         android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="152dp" />
+     -->
 
+    <Button
+        android:id="@+id/register"
+        android:layout_width="270dp"
+        android:layout_height="wrap_content"
+        android:text="S'inscrire"
+        android:textColor="@android:color/white"
+        android:background="#008080"
+        android:layout_alignParentTop="true"
+        android:layout_alignLeft="@+id/sign_in"
+        android:layout_alignStart="@+id/sign_in"
+        android:layout_marginTop="117dp" />
+    <!--
     <Button
         android:id="@+id/register"
         android:text="Register"
@@ -44,7 +69,7 @@
         android:layout_centerVertical="true"
         android:layout_alignLeft="@+id/sign_in"
         android:layout_alignStart="@+id/sign_in" />
-
+    -->
     <FrameLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"

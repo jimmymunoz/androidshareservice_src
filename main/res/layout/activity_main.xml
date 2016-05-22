@@ -5,19 +5,6 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
 
     tools:context="com.servproapp.MainActivity" >
-    <android.support.design.widget.AppBarLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:theme="@style/AppTheme.AppBarOverlay">
-
-        <android.support.v7.widget.Toolbar
-            android:id="@+id/toolbar"
-            android:layout_width="match_parent"
-            android:layout_height="?attr/actionBarSize"
-            android:background="?attr/colorPrimary"
-            app:popupTheme="@style/AppTheme.PopupOverlay" />
-
-    </android.support.design.widget.AppBarLayout>
 
     <FrameLayout
         android:textColor="#C0C0C0"
@@ -62,7 +49,8 @@
                 android:layout_height="wrap_content"
                 android:layout_gravity="center_horizontal"
                 android:gravity="center_horizontal"
-                android:text="Test Fragment"
+                android:text="Rechercher"
+                android:textSize="12dp"
                 android:textColor="#fff"/>
 
         </LinearLayout>
@@ -93,6 +81,7 @@
                 android:layout_gravity="center_horizontal"
                 android:gravity="center_horizontal"
                 android:text="Messages"
+                android:textSize="12dp"
                 android:textColor="#fff"/>
 
         </LinearLayout>
@@ -121,7 +110,8 @@
                 android:layout_height="wrap_content"
                 android:layout_gravity="center_horizontal"
                 android:gravity="center_horizontal"
-                android:text="@string/tab_Account"
+                android:text="Mon compte"
+                android:textSize="12dp"
                 android:textColor="#fff"/>
 
         </LinearLayout>
@@ -151,7 +141,8 @@
                 android:layout_height="wrap_content"
                 android:layout_gravity="center_horizontal"
                 android:gravity="center_horizontal"
-                android:text="@string/tab_ServPro"
+                android:textSize="12dp"
+                android:text="Proposer services"
                 android:textColor="#fff"/>
 
         </LinearLayout>

@@ -3,92 +3,96 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context="fragments.ServiceDetailFragment">
+    <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
 
-
-    <Button
-        android:id="@+id/button"
-        android:layout_width="137dp"
-        android:layout_height="60dp"
-        android:text="Contacter le fournisseur "
-        android:background="#187887"
-        android:textColor="@android:color/white"
-        android:layout_alignParentRight="true"
-        android:layout_alignParentEnd="true"
-        android:layout_gravity="left|bottom" />
-
-    <Button
-        android:id="@+id/Button_paiment"
-        android:layout_width="155dp"
-        android:layout_height="60dp"
-        android:text="Paiment "
-        android:background="#187887"
-        android:textColor="@android:color/white"
-        android:layout_alignParentRight="true"
-        android:layout_alignParentEnd="true"
-        android:layout_gravity="right|bottom" />
-
-    <LinearLayout
-        android:layout_width="186dp"
-        android:layout_height="181dp"
-        android:layout_alignTop="@+id/imageIcon"
-        android:layout_toRightOf="@+id/imageIcon"
-        android:orientation="vertical"
-        android:layout_gravity="center">
-        titreservice
-        <TextView
-            android:id="@+id/titreservice"
-            android:layout_width="wrap_content"
+        <LinearLayout
+            android:layout_width="fill_parent"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="24px"
-            android:text="service"
-            android:textSize="@dimen/font_size_big" />
-        <TextView
-            android:id="@+id/titrecategory"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="24px"
-            android:text="category"
-            android:textSize="@dimen/font_size_big" />
-        <TextView
-            android:id="@+id/adresseservice"
-            android:layout_width="wrap_content"
-            android:layout_marginLeft="24px"
-            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:weightSum="1">
+            <ImageView
+                android:id="@+id/imageView1"
+                android:layout_width="match_parent"
+                android:layout_height="160dp"
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentTop="true"
+                android:src="@drawable/laverie"
+                android:scaleType="centerCrop"
+                android:layout_weight="1.19" />
 
-            android:text="adress"
-            android:textSize="@dimen/font_size_big" />
+            <TextView
+                android:id="@+id/titreservice"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Service de laverie"
+                android:textColor="#187887"
+                android:textSize="@dimen/font_size_big"
+                android:layout_gravity="center_horizontal" />
 
-        <ImageView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:id="@+id/imageView2"
-            android:layout_gravity="right"
-            />
+            <TextView
+                android:id="@+id/titrecategory"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Service de Netoyage"
+                 />
 
-        <TextView
-            android:id="@+id/priceservice"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="24px"
-            android:text="prix "
-            android:textSize="@dimen/font_size_big" />
+            <TextView
+                android:id="@+id/adresseservice"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="230, Rue de triolet"
+                />
 
-        <TextView
-            android:id="@+id/descriptionservice"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="24px"
-            android:text="descripton"
-            android:textSize="@dimen/font_size_big" />
+            <TextView
+                android:id="@+id/priceservice"
+                android:layout_width="74dp"
+                android:layout_height="wrap_content"
+                android:text="20 €"
+                android:layout_gravity="right" />
 
-    </LinearLayout>
+            <TextView
+                android:id="@+id/descriptionservice"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Service de laverie à docimicile à côte des universités à Montpellier"
+                android:layout_weight="3.01" />
 
-    <ImageView
-        android:layout_width="158dp"
-        android:layout_height="112dp"
-        android:id="@+id/imageView3"
-        android:src="@drawable/ic_launcher"
-        android:layout_gravity="center_horizontal|top" />
+            <Button
+                android:id="@+id/Button_paiment"
+                android:layout_width="155dp"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="20dp"
+                android:layout_marginRight="20dp"
+                android:text="Payer"
+                android:layout_marginTop="30dp"
+                android:background="#187887"
+                android:textColor="@android:color/white"
+                android:layout_gravity="center_horizontal" />
+            <EditText
+                android:id="@+id/editText1"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="20dp"
+                android:ems="10"
+                android:hint="Votre commentaire"
+                android:inputType="textMultiLine" >
+
+                <requestFocus />
+            </EditText>
 
 
+            <Button
+                android:id="@+id/button_start_coneration"
+                android:layout_width="fill_parent"
+                android:layout_height="36dp"
+                android:layout_marginLeft="20dp"
+                android:layout_marginRight="20dp"
+                android:text="Envoyer un message au fournisseur"
+                android:background="@drawable/xml_btn_blue"
+                android:textColor="@android:color/white" />
+
+        </LinearLayout>
+    </ScrollView>
 </FrameLayout>

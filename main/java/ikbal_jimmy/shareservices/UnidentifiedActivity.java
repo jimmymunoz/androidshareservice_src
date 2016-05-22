@@ -16,6 +16,8 @@ public class UnidentifiedActivity extends AppCompatActivity {
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
+        setTitle("S'authentifier");
+
         Button sign = (Button) findViewById(R.id.sign_in);
         sign.setOnClickListener(new View.OnClickListener() {
             @Override

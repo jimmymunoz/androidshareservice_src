@@ -13,7 +13,7 @@ tools:context="ikbal_jimmy.shareservices.ShowServiceDescription" >
     android:layout_width="fill_parent"
     android:layout_height="wrap_content"
     android:layout_centerHorizontal="true"
-    android:layout_marginTop="20dp"
+    android:layout_marginTop="5dp"
     android:orientation="vertical" >
         <EditText
             android:id="@+id/editDescription"
@@ -25,29 +25,18 @@ tools:context="ikbal_jimmy.shareservices.ShowServiceDescription" >
             android:layout_below="@+id/linearLayout2"
             android:layout_alignParentLeft="true"
             android:layout_alignParentStart="true">
-
-            <requestFocus />
+           <requestFocus />
         </EditText>
         <Button
             android:id="@+id/button1"
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
             android:text="Rechercher"
-            android:background="#70c8d6"
+            android:background="#008080"
             android:textColor="@android:color/white"
             android:layout_below="@+id/editDescription"
             android:layout_alignParentRight="true"
             android:layout_alignParentEnd="true" />
-        <Button
-            android:id="@+id/button_tmp_navigation"
-            android:layout_width="fill_parent"
-            android:layout_height="wrap_content"
-            android:text="tmp_delete_service_detail"
-            android:background="#70c8d6"
-            android:textColor="@android:color/white"
-            android:layout_alignParentRight="true"
-            android:layout_alignParentEnd="true" />
-
 
 
         <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"

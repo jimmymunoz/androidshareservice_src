@@ -4,23 +4,17 @@ import android.app.Activity;
 import android.app.Fragment;
 import android.app.FragmentManager;
 import android.content.Context;
-import android.content.Intent;
 import android.os.Bundle;
-import android.support.v4.app.FragmentActivity;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import java.util.ArrayList;
 
 import fragments.ServiceDetailFragment;
-import ikbal_jimmy.shareservices.Conversation;
-import ikbal_jimmy.shareservices.MessagesActivity;
 import ikbal_jimmy.shareservices.R;
-import ikbal_jimmy.shareservices.ServiceDetailFragmentActivity;
 import ikbal_jimmy.shareservices.ServiceShare;
 
 /**
@@ -55,33 +49,11 @@ public class SearcheAdapter extends ArrayAdapter<ServiceShare>  {
         TextView textview_messages = (TextView) convertView.findViewById(R.id.adresseservice);
         textview_messages.setText(serviceobj.getAdress());
 
-/*
-*   public void onClick(View v) {
-                //send conversation id
-                Intent intent = new Intent(myContext, MessagesActivity.class);
-                intent.putExtra("id_conversation", conversation.id_conversation);
-                intent.putExtra("id_reciver", conversation.id_reciver);
-                myContext.startActivity(intent);
-                //Toast.makeText(myContext, "Load Messages, id_conversation: " + conversation.id_conversation, Toast.LENGTH_LONG).show();
-            }
-        });
 
-*
-* */
         convertView.setOnClickListener(new View.OnClickListener() {
 
             @Override
-
-
             public void onClick(View v) {
-                //send conversation id
-                Intent intent = new Intent(myContext, ServiceDetailFragmentActivity.class);
-                intent.putExtra("id_service",serviceobj.getId_service());
-                myContext.startActivity(intent);
-                //Toast.makeText(myContext, "Load Messages, id_conversation: " + conversation.id_conversation, Toast.LENGTH_LONG).show();
-            }
-        });
-         /*   public void onClick(View v) {
             Fragment fragment = new ServiceDetailFragment();
                 //send conversation id
              Bundle args = new Bundle();
@@ -91,7 +63,7 @@ public class SearcheAdapter extends ArrayAdapter<ServiceShare>  {
 					FragmentManager fragmentManager = ((Activity) myContext).getFragmentManager();
 					fragmentManager.beginTransaction().replace(R.id.content_frame, fragment).commit();
             }
-        });*/
+        });
 
         return convertView;
     }

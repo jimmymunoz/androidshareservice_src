@@ -65,8 +65,7 @@
         <activity
             android:name=".UserOrdersActivity"
             android:label="@string/title_activity_user_orders" />
-        <activity android:name=".OrderDetailActivity" />
-        <activity android:name=".ServiceDetailFragmentActivity"></activity>
+        <activity android:name=".OrderDetailActivity"></activity>
     </application>
 
 </manifest>

@@ -32,9 +32,7 @@ import java.util.HashMap;
 
 import Config.ConstValue;
 import adapters.ServiceAdapter;
-import ikbal_jimmy.shareservices.MessagesActivity;
 import ikbal_jimmy.shareservices.R;
-import ikbal_jimmy.shareservices.ServiceCategoryActivity;
 import imgLoader.AnimateFirstDisplayListener;
 import imgLoader.JSONParser;
 import util.ConnectionDetector;

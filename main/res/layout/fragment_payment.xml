@@ -124,7 +124,7 @@
         android:id="@+id/button_tmp_navigation"
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
-        android:text="tmp_order_result"
+        android:text="Paiment "
         android:background="#70c8d6"
         android:textColor="@android:color/white"
         android:layout_alignParentRight="true"

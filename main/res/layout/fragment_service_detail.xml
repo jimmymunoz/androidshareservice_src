@@ -11,7 +11,7 @@
         android:layout_alignTop="@+id/imageIcon"
         android:layout_toRightOf="@+id/imageIcon"
         android:orientation="vertical" >
-
+        titreservice
         <TextView
             android:id="@+id/titreservice"
             android:layout_width="wrap_content"
@@ -44,7 +44,8 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="2dp"
-                    android:text="address" />
+                    android:textSize="@dimen/font_size_big"
+                    />
             </LinearLayout>
 
         </LinearLayout>
@@ -53,19 +54,26 @@
 
 
     <Button
+        android:id="@+id/button"
+        android:layout_width="169dp"
+        android:layout_height="60dp"
+        android:text="Contacter le fournisseur "
+        android:background="#70c8d6"
+        android:textColor="@android:color/white"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true"
+        android:layout_gravity="left|center_vertical" />
+
+    <Button
         android:id="@+id/button_tmp_navigation"
-        android:layout_width="fill_parent"
-        android:layout_height="wrap_content"
+        android:layout_width="205dp"
+        android:layout_height="60dp"
         android:text="tmp_order_result"
         android:background="#70c8d6"
         android:textColor="@android:color/white"
         android:layout_alignParentRight="true"
         android:layout_alignParentEnd="true"
-        android:layout_gravity="center_horizontal|bottom" />
-
-
-
-
+        android:layout_gravity="right|center_vertical" />
 
 
 </FrameLayout>

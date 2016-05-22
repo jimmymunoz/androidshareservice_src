@@ -78,23 +78,16 @@ public class ServiceDetailFragment extends android.app.Fragment {
      public static  void refreshArrayListViewData( String id_service,String titre ,String active,String description,String address,String id_category_service,String price)
      {
          Toast.makeText(act,"lisyee."+address, Toast.LENGTH_LONG).show();
-        /*
-         TextView textview_messages = (TextView)rootview2.findViewById(R.id.adresseservice);
-         textview_messages.setText(address);
 
-         TextView titre_view= (TextView)rootview2.findViewById(R.id.titreservice);
-         titre_view.setText(titre);
-
-         TextView textview_prix= (TextView)rootview2.findViewById(R.id.price);
-         textview_prix.setText(price);
-           */
-         TextView texteview_description = (TextView)rootview2.findViewById(R.id.adresseservice);
-         texteview_description.setText(address);
+         TextView texteview_address = (TextView)rootview2.findViewById(R.id.adresseservice);
+         texteview_address.setText(address);
 
 
-         TextView texteview_titre = (TextView)rootview2.findViewById(R.id.titrecategory);
-         texteview_titre.setText(titre);
+         TextView texteview_category = (TextView)rootview2.findViewById(R.id.titrecategory);
+         texteview_category.setText(titre);
 
+         TextView tex_titreservicee= (TextView)rootview2.findViewById(R.id.titreservice);
+         tex_titreservicee.setText(titre);
 
      }
 

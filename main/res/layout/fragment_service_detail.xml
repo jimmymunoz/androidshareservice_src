@@ -5,75 +5,84 @@
     tools:context="fragments.ServiceDetailFragment">
 
 
-    <LinearLayout
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignTop="@+id/imageIcon"
-        android:layout_toRightOf="@+id/imageIcon"
-        android:orientation="vertical" >
-        titreservice
-        <TextView
-            android:id="@+id/titreservice"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="TextView"
-            android:textSize="@dimen/font_size_big" />
-
-        <TextView
-            android:id="@+id/titrecategory"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="TextView" />
-
-        <LinearLayout
-            android:layout_width="fill_parent"
-            android:layout_height="wrap_content"
-            android:layout_alignLeft="@+id/imageIcon"
-            android:layout_below="@+id/imageIcon"
-            android:layout_marginTop="1dp" >
-
-            <LinearLayout
-                android:layout_width="0dp"
-                android:layout_height="match_parent"
-                android:gravity="left"
-                android:layout_weight="1" >
-
-
-                <TextView
-                    android:id="@+id/adresseservice"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="2dp"
-                    android:textSize="@dimen/font_size_big"
-                    />
-            </LinearLayout>
-
-        </LinearLayout>
-
-    </LinearLayout>
-
-
     <Button
         android:id="@+id/button"
-        android:layout_width="169dp"
+        android:layout_width="137dp"
         android:layout_height="60dp"
         android:text="Contacter le fournisseur "
-        android:background="#70c8d6"
+        android:background="#187887"
         android:textColor="@android:color/white"
         android:layout_alignParentRight="true"
         android:layout_alignParentEnd="true"
         android:layout_gravity="left|center_vertical" />
 
+    <LinearLayout
+        android:layout_width="369dp"
+        android:layout_height="181dp"
+        android:layout_alignTop="@+id/imageIcon"
+        android:layout_toRightOf="@+id/imageIcon"
+        android:orientation="vertical"
+        android:layout_gravity="center_horizontal|top">
+        titreservice
+        <TextView
+            android:id="@+id/titreservice"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="service"
+            android:textSize="@dimen/font_size_big" />
+        <TextView
+            android:id="@+id/titrecategory"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="category"
+            android:textSize="@dimen/font_size_big" />
+        <TextView
+            android:id="@+id/adresseservice"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="adress"
+            android:textSize="@dimen/font_size_big" />
+        <TextView
+            android:id="@+id/descriptionservice"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="descripton"
+            android:textSize="@dimen/font_size_big" />
+        <TextView
+            android:id="@+id/priceservice"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="prix "
+            android:textSize="@dimen/font_size_big" />
+
+    </LinearLayout>
+
     <Button
-        android:id="@+id/button_tmp_navigation"
-        android:layout_width="205dp"
+        android:id="@+id/Button_paiment"
+        android:layout_width="155dp"
         android:layout_height="60dp"
-        android:text="tmp_order_result"
-        android:background="#70c8d6"
+        android:text="Paiment "
+        android:background="#187887"
         android:textColor="@android:color/white"
         android:layout_alignParentRight="true"
         android:layout_alignParentEnd="true"
         android:layout_gravity="right|center_vertical" />
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_gravity="center">
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/imageView2"
+            android:layout_alignParentTop="true"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true"
+            android:layout_marginLeft="119dp"
+            android:layout_marginStart="119dp" />
+    </RelativeLayout>
 
 
 </FrameLayout>

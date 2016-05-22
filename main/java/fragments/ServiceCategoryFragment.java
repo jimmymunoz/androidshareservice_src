@@ -85,7 +85,7 @@ public class ServiceCategoryFragment extends Fragment {
 
         @Override
         protected String doInBackground(String... params) {
-           String urladress = ConstValue.WEB_SERVICE_URL + "services?id_category="+id_category;
+           String urladress = ConstValue.WEB_SERVICE_URL + "services?id_category="+params[0];
 
             Log.d("Get", "request  :" + urladress);
             String responseServer = RestHelper.executeGET(urladress);

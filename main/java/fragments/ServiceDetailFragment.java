@@ -36,6 +36,12 @@ public class ServiceDetailFragment extends android.app.Fragment {
     String id_service;
     static Activity act;
     public static View rootview2;
+    static TextView titre_texte;
+    static TextView description_texte;
+    static TextView texteview_address;
+    static TextView texteview_category;
+    static TextView text_prix;
+
     public ServiceDetailFragment() {
         // Required empty public constructor
     }
@@ -49,7 +55,7 @@ public class ServiceDetailFragment extends android.app.Fragment {
         rootview2 = inflater.inflate(R.layout.fragment_service_detail, container, false);
         final View rootView = inflater.inflate(R.layout.fragment_service_detail, container, false);
         //rootview2 = rootView;
-        rootView.findViewById(R.id.button_tmp_navigation).
+        rootView.findViewById(R.id.Button_paiment).
                 setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
@@ -71,24 +77,22 @@ public class ServiceDetailFragment extends android.app.Fragment {
         } else {
 
         }
-
+        titre_texte = (TextView) rootView.findViewById(R.id.titreservice);
+        description_texte = (TextView) rootView.findViewById(R.id.descriptionservice);
+        texteview_address = (TextView) rootView.findViewById(R.id.adresseservice);
+        texteview_category = (TextView)rootView.findViewById(R.id.titrecategory);
+        text_prix = (TextView) rootView.findViewById(R.id.priceservice);
         // Inflate the layout for this fragment
         return inflater.inflate(R.layout.fragment_service_detail, container, false);
     }
-     public static  void refreshArrayListViewData( String id_service,String titre ,String active,String description,String address,String id_category_service,String price)
+     public static void refreshArrayListViewData( String id_service,String titre ,String active,String description,String address,String id_category_service,String price)
      {
          Toast.makeText(act,"lisyee."+address, Toast.LENGTH_LONG).show();
-
-         TextView texteview_address = (TextView)rootview2.findViewById(R.id.adresseservice);
+         titre_texte.setText(titre);
+         description_texte.setText("description");
          texteview_address.setText(address);
-
-
-         TextView texteview_category = (TextView)rootview2.findViewById(R.id.titrecategory);
-         texteview_category.setText(titre);
-
-         TextView tex_titreservicee= (TextView)rootview2.findViewById(R.id.titreservice);
-         tex_titreservicee.setText(titre);
-
+         texteview_category.setText(id_category_service);
+         text_prix.setText(price);
      }
 
 

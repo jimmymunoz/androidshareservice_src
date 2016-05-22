@@ -55,7 +55,7 @@ public class ServiceCategoryFragment extends Fragment {
         ListView vue = (ListView) rootView.findViewById(R.id.service_category_list);
         vue.setAdapter(adapter);
 
-        Toast.makeText(act, "id_category."+id_category, Toast.LENGTH_LONG).show();
+        //Toast.makeText(act, "id_category."+id_category, Toast.LENGTH_LONG).show();
 
 
         ConnectivityManager connMgr = (ConnectivityManager) getActivity().getSystemService(Context.CONNECTIVITY_SERVICE);

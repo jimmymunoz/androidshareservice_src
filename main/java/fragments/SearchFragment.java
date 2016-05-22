@@ -46,9 +46,7 @@ public class SearchFragment extends Fragment{
         final View rootView = inflater.inflate(R.layout.activity_activity_search, container, false);
         act =getActivity();
         settings = act.getSharedPreferences(ConstValue.MAIN_PREF, 0);
-        //setTitle("Recherche par nom:" );
-
-
+        //setTitle("Recherche par nom" );
 
         rootView.findViewById(R.id.button1).
             setOnClickListener(new View.OnClickListener() {
@@ -66,8 +64,8 @@ public class SearchFragment extends Fragment{
                     Toast.makeText(getActivity(), "No network connection available.", Toast.LENGTH_LONG).show();
                     //textView.setText("No network connection available.");
                 }
-                }
-            });
+            }
+        });
 
         rootView.findViewById(R.id.button_tmp_navigation).
             setOnClickListener(new View.OnClickListener() {

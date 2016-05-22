@@ -1,10 +1,7 @@
 package adapters;
 
-import android.app.Activity;
-import android.app.Fragment;
-import android.app.FragmentManager;
 import android.content.Context;
-import android.os.Bundle;
+import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -13,8 +10,8 @@ import android.widget.TextView;
 
 import java.util.ArrayList;
 
-import fragments.ServiceDetailFragment;
 import ikbal_jimmy.shareservices.R;
+import ikbal_jimmy.shareservices.ServiceDetailActivity;
 import ikbal_jimmy.shareservices.ServiceShare;
 
 /**
@@ -49,19 +46,30 @@ public class SearcheAdapter extends ArrayAdapter<ServiceShare>  {
         TextView textview_messages = (TextView) convertView.findViewById(R.id.adresseservice);
         textview_messages.setText(serviceobj.getAdress());
 
-
+        /*
         convertView.setOnClickListener(new View.OnClickListener() {
 
             @Override
             public void onClick(View v) {
-            Fragment fragment = new ServiceDetailFragment();
+                Fragment fragment = new ServiceDetailFragment();
                 //send conversation id
-             Bundle args = new Bundle();
-					args.putString("id_service", serviceobj.getId_service());
-					fragment.setArguments(args);
-					//args.putInt(PlanetFragment.ARG_PLANET_NUMBER, position);
-					FragmentManager fragmentManager = ((Activity) myContext).getFragmentManager();
-					fragmentManager.beginTransaction().replace(R.id.content_frame, fragment).commit();
+                Bundle args = new Bundle();
+                args.putString("id_service", serviceobj.getId_service());
+                fragment.setArguments(args);
+                //args.putInt(PlanetFragment.ARG_PLANET_NUMBER, position);
+                FragmentManager fragmentManager = ((Activity) myContext).getFragmentManager();
+                fragmentManager.beginTransaction().replace(R.id.content_frame, fragment).commit();
+            }
+        });
+        */
+
+        convertView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                //send conversation id
+                Intent intent = new Intent(myContext, ServiceDetailActivity.class);
+                intent.putExtra("id_service", serviceobj.getId_service());
+                myContext.startActivity(intent);
             }
         });
 

@@ -2,6 +2,7 @@ package fragments;
 
 import android.app.Activity;
 import android.app.Fragment;
+import android.app.FragmentManager;
 import android.content.Context;
 import android.content.SharedPreferences;
 import android.net.ConnectivityManager;
@@ -13,10 +14,8 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
-import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ListView;
-import android.widget.TextView;
 import android.widget.Toast;
 
 import org.json.JSONArray;
@@ -24,18 +23,11 @@ import org.json.JSONException;
 import org.json.JSONObject;
 
 import java.util.ArrayList;
-import java.util.HashMap;
 
 import Config.ConstValue;
-import adapters.MessageAdapter;
 import adapters.SearcheAdapter;
-import ikbal_jimmy.shareservices.Authenticate;
-import ikbal_jimmy.shareservices.Conversation;
-import ikbal_jimmy.shareservices.ConversationsActivity;
-import ikbal_jimmy.shareservices.Message;
 import ikbal_jimmy.shareservices.R;
 import ikbal_jimmy.shareservices.RestHelper;
-import ikbal_jimmy.shareservices.ServiceModel;
 import ikbal_jimmy.shareservices.ServiceShare;
 
 //import com.servproapp.BookAppointmentActivity;
@@ -57,28 +49,38 @@ public class SearchFragment extends Fragment{
 
 
         rootView.findViewById(R.id.button1).
-                setOnClickListener(new View.OnClickListener() {
-                    @Override
-                    public void onClick(View v) {
-                        EditText DetailService = (EditText) rootView.findViewById(R.id.editDescription);
-                        String DetailServicesearch = DetailService.getText().toString();
+            setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                EditText DetailService = (EditText) rootView.findViewById(R.id.editDescription);
+                String DetailServicesearch = DetailService.getText().toString();
 
-                        String task = "";
-                        ConnectivityManager connMgr = (ConnectivityManager) getActivity().getSystemService(Context.CONNECTIVITY_SERVICE);
-                        NetworkInfo networkInfo = connMgr.getActiveNetworkInfo();
-                        if (networkInfo != null && networkInfo.isConnected()) {
-                            new HttpSearchServiceRequestTask().execute(DetailServicesearch);
-                        } else {
-                            Toast.makeText(getActivity(), "No network connection available.", Toast.LENGTH_LONG).show();
-                            //textView.setText("No network connection available.");
-                        }
-                    }
+                String task = "";
+                ConnectivityManager connMgr = (ConnectivityManager) getActivity().getSystemService(Context.CONNECTIVITY_SERVICE);
+                NetworkInfo networkInfo = connMgr.getActiveNetworkInfo();
+                if (networkInfo != null && networkInfo.isConnected()) {
+                    new HttpSearchServiceRequestTask().execute(DetailServicesearch);
+                } else {
+                    Toast.makeText(getActivity(), "No network connection available.", Toast.LENGTH_LONG).show();
+                    //textView.setText("No network connection available.");
+                }
+                }
+            });
 
+        rootView.findViewById(R.id.button_tmp_navigation).
+            setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    Fragment fragment = new ServiceDetailFragment();
 
+                    Bundle args = new Bundle();
+                    fragment.setArguments(args);
+                    //args.putInt(PlanetFragment.ARG_PLANET_NUMBER, position);
+                    FragmentManager fragmentManager = getFragmentManager();
+                    fragmentManager.beginTransaction().replace(R.id.content_frame, fragment).commit();
+                }
+            });
 
-
-
-                });
         listeServices = new ArrayList<ServiceShare>();
         adapter = new SearcheAdapter(getActivity(), listeServices);
         //ListAdapter adapter = new ArrayAdapter(myContext, android.R.layout.simple_list_item_1, ListMessages);
@@ -116,9 +118,6 @@ public class SearchFragment extends Fragment{
                 if( jsonRootObject.optString("error").toString().equals("1") ){
                     Toast.makeText(getActivity(), "Error :" + jsonRootObject.optString("message").toString(), Toast.LENGTH_LONG).show();
                 }
-
-
-
                 else{
                     JSONArray jsonArray = jsonRootObject.optJSONArray("services");
                     //Iterate the jsonArray and print the info of JSONObjects

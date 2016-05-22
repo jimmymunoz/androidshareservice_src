@@ -1,6 +1,5 @@
 package ikbal_jimmy.shareservices;
 
-import android.accounts.Account;
 import android.app.Fragment;
 import android.app.FragmentManager;
 import android.content.Context;
@@ -30,7 +29,6 @@ import org.json.JSONObject;
 import java.util.ArrayList;
 
 import fragments.ConversationFragment;
-import fragments.RegisterFragment;
 import fragments.SearchFragment;
 import fragments.ServicesFragment;
 
@@ -98,9 +96,6 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             }
         });
 
-
-
-
         /*
         *  TestFragment.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -124,11 +119,11 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 String api_key = Authenticate.getApiKey();
                 if (api_key != null) {
                     /*si l'utilisateur  est connecté */
-                    startActivity(new Intent(getApplicationContext(), ProfilActivity.class));
+                    startActivity(new Intent(getApplicationContext(), ProfileActivity.class));
 
                 } else {
                     /*sinon il dois  se  connecté */
-                    startActivity(new Intent(getApplicationContext(), noidentifiActivity.class));
+                    startActivity(new Intent(getApplicationContext(), UnidentifiedActivity.class));
 
                 }
             }
@@ -148,8 +143,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                     startActivity(new Intent(getApplicationContext(), AddSerciceActivity.class));
 
                 } else {
-                    startActivity(new Intent(getApplicationContext(), noidentifiActivity.class));
-
+                    startActivity(new Intent(getApplicationContext(), UnidentifiedActivity.class));
                 }
             }
         });

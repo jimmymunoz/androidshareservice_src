@@ -45,7 +45,7 @@
             android:label="@string/title_activity_add_sercice"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity
-            android:name=".noidentifiActivity"
+            android:name=".UnidentifiedActivity"
             android:label="@string/title_activity_noidentifi"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity android:name=".ServiceCategoryActivity" />
@@ -54,12 +54,17 @@
             android:icon="@drawable/app_icons_13"
             android:label="Conversations" />
         <activity android:name=".MessagesActivity" />
-
         <activity
-            android:name=".ProfilActivity"
+            android:name=".ProfileActivity"
             android:label="@string/title_activity_profil"
-            android:theme="@style/AppTheme.NoActionBar"></activity>
-        <service android:name="ikbal_jimmy.shareservices.NotificationService"></service>
+            android:theme="@style/AppTheme.NoActionBar" />
+
+        <service android:name=".NotificationService" />
+
+        <activity android:name=".UserServiceListActivity" />
+        <activity
+            android:name=".UserOrdersActivity"
+            android:label="@string/title_activity_user_orders"></activity>
     </application>
 
 </manifest>

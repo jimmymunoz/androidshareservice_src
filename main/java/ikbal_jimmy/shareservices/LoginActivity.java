@@ -26,7 +26,8 @@ public class LoginActivity extends AppCompatActivity {
         setContentView(R.layout.activity_login);
         myContext =this;
         String apikey = Authenticate.getApiKey();;
-        Toast.makeText(myContext, "api key session:" + apikey, Toast.LENGTH_LONG).show();
+        //Toast.makeText(myContext, "Bienvenue " + apikey, Toast.LENGTH_LONG).show();
+        //Toast.makeText(myContext, "api key session:" + apikey, Toast.LENGTH_LONG).show();
         ((Button) findViewById(R.id.buttonlogin)).
                 setOnClickListener(new View.OnClickListener() {
                     @Override
@@ -87,10 +88,11 @@ public class LoginActivity extends AppCompatActivity {
                     String id_user = jsonRootObject.optString("id_user").toString();
                     String phone = jsonRootObject.optString("phone").toString();
 
-                    Toast.makeText(myContext, "api key :" + apikey, Toast.LENGTH_LONG).show();
-                    //Authenticate.setApiKey(apikey, myContext);
+                    Toast.makeText(myContext, "Bienvenue :" + pseudo, Toast.LENGTH_LONG).show();
+                    Authenticate.setApiKey(apikey, myContext);
                     Authenticate.setUserLoginData(apikey, first_name, last_name, pseudo, email, id_user, phone, myContext);
-                    Intent intent = new Intent(myContext,MainActivity.class);
+
+                    Intent intent = new Intent(myContext, MainActivity.class);
                     myContext.startActivity(intent);
 
                 }

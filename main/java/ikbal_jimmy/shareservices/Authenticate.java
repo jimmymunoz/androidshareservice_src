@@ -8,15 +8,14 @@ import android.preference.PreferenceManager;
  * Created by H.ikbal on 04/05/2016.
  */
 public class Authenticate {
-    private static String api_key = null;
-    private static String id_user_logged = "";
-    private static String pseudo = "";
-
-    private static String first_name = "";
-    private static String last_name = "";
-    private static String email = "";
-    private static String id_user = "";
-    private static String phone = "";
+    public static String api_key = null;
+    public static String id_user_logged = "";
+    public static String pseudo = "";
+    public static String first_name = "";
+    public static String last_name = "";
+    public static String email = "";
+    public static String id_user = "";
+    public static String phone = "";
 
 
 
@@ -39,6 +38,21 @@ public class Authenticate {
 
     }
 
+    public static void logout(Context context){
+        SharedPreferences sharedPrefs = PreferenceManager.getDefaultSharedPreferences(context);
+        SharedPreferences.Editor editor = sharedPrefs.edit();
+        editor.clear();
+        editor.commit();
+
+        api_key = null;
+        id_user_logged = "";
+        pseudo = "";
+        first_name = "";
+        last_name = "";
+        email = "";
+        id_user = "";
+        phone = "";
+    }
 
 
     public static String getApiKey(){
@@ -54,30 +68,37 @@ public class Authenticate {
         api_key = api_key_var;
     }
 
-    public static void setUserLoginData(String apikey, String first_name_, String last_name, String pseudo_var, String email, String id_user, String phone, Context context){
+    public static void setUserLoginData(String apikey_, String first_name_, String last_name_, String pseudo_, String email_, String id_user_, String phone_, Context context){
         SharedPreferences settings = PreferenceManager
                 .getDefaultSharedPreferences(context);
         SharedPreferences.Editor editor = settings.edit();
-        editor.putString("api_key", apikey);
+        editor.putString("api_key", apikey_);
         editor.putString("first_name", first_name_);
-        editor.putString("last_name", last_name);
-        editor.putString("pseudo", pseudo_var);
-        editor.putString("email", email);
-        editor.putString("id_user", id_user);
-        editor.putString("phone", phone);
+        editor.putString("last_name", last_name_);
+        editor.putString("pseudo", pseudo_);
+        editor.putString("email", email_);
+        editor.putString("id_user", id_user_);
+        editor.putString("phone", phone_);
 
         editor.commit();
-        api_key = apikey;
+        api_key = apikey_;
         first_name = first_name_;
-        last_name = last_name;
+        last_name = last_name_;
         id_user_logged = id_user;
-        pseudo = pseudo_var;
-        email = email;
-        phone = phone;
+        pseudo = pseudo_;
+        email = email_;
+        phone = phone_;
     }
 
     public static String getIdUserLogged(){
         return id_user_logged;
+    }
+
+    public static String getUserfirst_name(Context context){
+        SharedPreferences settings = PreferenceManager
+                .getDefaultSharedPreferences(context);
+        first_name = settings.getString("first_name", null);
+        return first_name;
     }
 
     public static String getIdUserLogged(Context context){

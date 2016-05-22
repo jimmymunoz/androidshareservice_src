@@ -10,7 +10,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.LinearLayout;
 
-public class noidentifiActivity extends AppCompatActivity {
+public class UnidentifiedActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

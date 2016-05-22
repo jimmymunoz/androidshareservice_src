@@ -108,9 +108,10 @@ public class ServicesFragment extends Fragment{
 
 
 					*/
+				String  id_category = service_array.get(arg2).get("id_category_service");
 				Toast.makeText(getActivity(), "id_categoory"+service_array.get(arg2).get("id_category_service"), Toast.LENGTH_LONG).show();
 				Intent intent = new Intent(getActivity(), ServiceCategoryFragment.class);
-				intent.putExtra("id_category",service_array.get(arg2).get("id_category_service"));
+				intent.putExtra("id_category",id_category);
 				getActivity().startActivity(intent);
 
 			}

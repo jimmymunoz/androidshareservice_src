@@ -46,14 +46,10 @@ public class ConversationFragment extends Fragment {
         act = getActivity();
         settings = act.getSharedPreferences(ConstValue.MAIN_PREF, 0);
 
-
-        //getActionBar().setIcon(R.drawable.app_icons_13);
-
         arrayListData = new ArrayList<Conversation>();
         adapter = new ConversationAdapter(getActivity(), arrayListData, id_user_logged);
         ListView vue = (ListView) rootView.findViewById(R.id.conversation_list);
         vue.setAdapter(adapter);
-
 
         ConnectivityManager connMgr = (ConnectivityManager) getActivity().getSystemService(Context.CONNECTIVITY_SERVICE);
         NetworkInfo networkInfo = connMgr.getActiveNetworkInfo();

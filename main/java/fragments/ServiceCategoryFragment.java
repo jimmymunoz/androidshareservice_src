@@ -47,7 +47,6 @@ public class ServiceCategoryFragment extends Fragment {
         act = getActivity();
         settings = act.getSharedPreferences(ConstValue.MAIN_PREF, 0);
 
-
         //getActionBar().setIcon(R.drawable.app_icons_13);
 
         arrayListData = new ArrayList<ServiceCategory>();
@@ -66,9 +65,6 @@ public class ServiceCategoryFragment extends Fragment {
         } else {
             Toast.makeText(getActivity(), "No network connection available.", Toast.LENGTH_LONG).show();
         }
-
-
-
         return rootView;
 
     }
@@ -78,7 +74,6 @@ public class ServiceCategoryFragment extends Fragment {
         arrayListData.clear();
         arrayListData.addAll(UpdatedArrayListData);
         adapter.notifyDataSetChanged();
-
     }
 
 
@@ -87,9 +82,7 @@ public class ServiceCategoryFragment extends Fragment {
 
         @Override
         protected String doInBackground(String... params) {
-
-            String urladress = ConstValue.WEB_SERVICE_URL + "service?id_category="+id_category;
-
+           String urladress = ConstValue.WEB_SERVICE_URL + "service?id_category="+id_category;
 
             Log.d("Get", "request  :" + urladress);
             String responseServer = RestHelper.executeGET(urladress);
@@ -124,8 +117,6 @@ public class ServiceCategoryFragment extends Fragment {
 
                         jsonObject.optString("price").toString()
                         */
-
-
                         updatedListAdapterData.add(tmpObj);
                     }
                 }

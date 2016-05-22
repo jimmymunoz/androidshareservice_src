@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+	<string name="facebook_app_id">1640105542925901</string>
+    <string name="google_map_api_key">AIzaSyABopnV4i4hKftdEKfTaMgOWThp9uVx12s</string>
+    
+    <string name="app_name">ServPro App</string>
+    <string name="hello_world">¡Hola Mundo!</string>
+    <string name="action_settings">Logout</string>
+    <string name="action_save">Guardar</string>
+    <string name="title_activity_login">Iniciar sesión</string>
+    <string name="title_activity_register">Registro</string>
+    <string name="title_activity_book_appointment">Nombramiento libro</string>
+    <string name="title_activity_appointment_description">Nombramiento Descripción</string>
+    <string name="title_activity_finish">Finalizar Nombramiento</string>
+    <string name="title_activity_choose_date">Seleccionar fecha</string>
+    <string name="text_welcome_login">Ingresar con SERVPRO</string>
+    <string name="text_register_us">Regístrese con Nosotros</string>
+    <string name="text_hint_fname">Nombre de pila</string>
+    <string name="text_hint_lname">Apellido</string>
+    <string name="text_hint_email">Email Dirección</string>
+    <string name="text_hint_password">Clave</string>
+    <string name="text_hint_phone">Teléfono</string>
+    <string name="text_btn_register">Registro</string>
+    <string name="text_btn_login">Iniciar sesión</string>
+    <string name="title_activity_pros">Pros</string>
+    <string name="title_activity_prices">Precios</string>
+    <string name="title_activity_comments">Comentarios</string>
+    <string name="title_activity_add_comment">Agregar comentario</string>
+    <string name="title_activity_splash">ServPro</string>
+    <string name="title_activity_choose_time">Elige Tiempo</string>
+    <string name="title_activity_address">Dirección</string>
+    <string name="title_activity_finish_job">Finalizar Trabajo</string>
+    <string name="title_activity_retake_appointment">Retomar Nombramiento</string>
+
+    <string name="Your_Rating">Tu valoración</string>
+    <string name="Your_Comment">Tu comentario</string>
+    <string name="Your_comment_here">Su comentario aquí</string>
+    <string name="Submit_Review">Enviar opinión</string>
+    <string name="Place_Address">Place Dirección</string>
+    <string name="Description">Descripción</string>
+    <string name="Take_Photo">Tomar foto</string>
+    <string name="PROMO_CODE">CÓDIGO PROMOCIONAL</string>
+    <string name="Confirm_Appointment">confirme Nombramiento</string>
+    <string name="Choose_Address">Elija Dirección</string>
+    <string name="Choose_Date">Seleccionar fecha</string>
+    <string name="Choose_Time">Elige Tiempo</string>
+    <string name="Continue">Continuar</string>
+    <string name="Price">Precio</string>
+    <string name="Pros">Pros</string>
+    <string name="Comments">Comentarios</string>
+    <string name="Choose">Escoger :</string>
+    <string name="choose_after_noon">Elige Después del mediodía</string>
+    <string name="choose_morning_time">Elija mañana Tiempo</string>
+    <string name="choose_comfort">Tu Tiempo confurt</string>
+    <string name="add">Añadir</string>
+    <string name="myappointment">Mi nombramiento</string>
+    <string name="takemehome">Llévame a casa</string>
+    <string name="tab_Info">Info</string>
+    <string name="tab_Account">Cuenta</string>
+    <string name="tab_ServPro">ServPro</string>
+    <string name="tab_Jobs">Trabajo</string>
+    <string name="tab_Help">Ayuda</string>
+    <string name="Update">Actualizar</string>
+    <string name="Address">Dirección : </string>
+    <string name="Varified">Varified</string>
+    <string name="Insured">Asegurado</string>
+    <string name="ChooseTimeNote">Select your availability of jobs. Service proider will come on your selected time.</string>
+        <string name="finishThanks">Thanks for making your appoinment.</string>
+    <string name="finishNote">Your appoinment is now in pending status our service provider will approve it soon.</string>
+    
+</resources>

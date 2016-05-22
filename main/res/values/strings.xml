@@ -1,0 +1,112 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="facebook_app_id">177655382578294</string>
+    <string name="google_map_api_key">AIzaSyABopnV4i4hKftdEKfTaMgOWThp9uVx12s</string>
+
+    <string name="app_name">Share Services App</string>
+    <string name="hello_world">Hello world!</string>
+    <string name="action_settings">Logout</string>
+    <string name="action_save">Save</string>
+    <string name="title_activity_login">Login</string>
+    <string name="title_activity_register">Register</string>
+    <string name="title_activity_book_appointment">Book Appointment</string>
+    <string name="title_activity_appointment_description">Appointment Description</string>
+    <string name="title_activity_finish">Finish Appointment</string>
+    <string name="title_activity_choose_date">Choose Date</string>
+    <string name="text_welcome_login">Login with ServPro</string>
+    <string name="text_register_us">Inscription</string>
+    <string name="Add_service">Ajouter un service </string>
+    <string name="creer_un_service">Creer un service</string>
+    <string name="text_moncompte">Mon compte</string>
+    <string name="Register">Register</string>
+
+    <string name="Searche_Services">Searche Services</string>
+
+    <string name="text_hint_fname">First Name</string>
+    <string name="text_hint_lname">Last Name</string>
+    <string name="text_hint_email">Email Address</string>
+    <string name="text_hint_password">Password</string>
+    <string name="text_hint_phone">Phone Number</string>
+    <string name="text_btn_register">Register</string>
+    <string name="text_btn_login">Login Now</string>
+    <string name="title_activity_pros">Pros</string>
+    <string name="title_activity_prices">Prices</string>
+    <string name="title_activity_comments">Comments</string>
+    <string name="title_activity_add_comment">Add Comment</string>
+    <string name="title_activity_splash">ServPro</string>
+    <string name="title_activity_choose_time">Choose Time</string>
+    <string name="title_activity_address">Address</string>
+    <string name="title_activity_finish_job">Finish Job</string>
+    <string name="title_activity_retake_appointment">Retake Appointment</string>
+
+    <string name="Your_Rating">Your Rating</string>
+    <string name="Your_Comment">Your Comment</string>
+    <string name="Your_comment_here">Your comment here</string>
+    <string name="Submit_Review">Submit Review</string>
+    <string name="Place_Address">Place Address</string>
+    <string name="Description">Description</string>
+    <string name="Take_Photo">Take Photo</string>
+    <string name="PROMO_CODE">PROMO CODE</string>
+    <string name="Confirm_Appointment">Confirm Appointment</string>
+    <string name="Choose_Address">Choose Address</string>
+    <string name="Choose_Date">Choose Date</string>
+    <string name="Choose_Time">Choose Time</string>
+    <string name="Continue">Continue</string>
+    <string name="Price">Price</string>
+    <string name="Pros">Pros</string>
+    <string name="Comments">Comments</string>
+    <string name="Choose">Choose :</string>
+    <string name="choose_after_noon">Choose After Noon Time</string>
+    <string name="choose_morning_time">Choose Morning Time</string>
+    <string name="choose_comfort">Your confurt Time</string>
+    <string name="add">Add</string>
+    <string name="myappointment">My Appointment</string>
+    <string name="takemehome">Take Me Home</string>
+    <string name="tab_Info">Info</string>
+    <string name="tab_Account">Account</string>
+    <string name="tab_ServPro">Share Services</string>
+    <string name="tab_Jobs">Jobs</string>
+    <string name="tab_Help">Help</string>
+    <string name="Update">Update</string>
+    <string name="Address">Address : </string>
+    <string name="Varified">Varified</string>
+    <string name="Insured">Insured</string>
+    <string name="ChooseTimeNote">Select your availability of jobs. Service proider will come on your selected time.</string>
+    <string name="finishThanks">Thanks for making your appoinment.</string>
+    <string name="finishNote">Your appoinment is now in pending status our service provider will approve it soon.</string>
+    <string name="title_activity_main2">Main2Activity</string>
+    <string name="title_activity_activity_search">activity_search</string>
+    <string name="title_activity_message">MessageActivity</string>
+    <string name="title_activity_send_message">SendMessageActivity</string>
+    <string name="title_activity_message__recu">Message_Recu</string>
+    <!--  String  utilisateur -->
+    <string name="pseudo">Pseudo</string>
+    <!-- Attribut  add service -->
+    <string name="title">Titre</string>
+    <string name="description">Description</string>
+    <string name="price">Prix</string>
+    <string name="Adress">Adresse</string>
+    <string name="City">Ville</string>
+    <string name="Atitude">Latitude</string>
+    <string name="ButtonAjouterService">Publier Ce Service </string>
+
+    <string name="longituge">longituge</string>
+    <string name="title_activity_add_sercice">AddSerciceActivity</string>
+    <string name="title_activity_login1">Login1Activity</string>
+    <string name="title_activity_noidentifi">noidentifiActivity</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+
+
+    <string-array name="navigation_drawer_items_array">
+        <item>Create</item>
+        <item>Read</item>
+        <item>Help</item>
+    </string-array>
+    <string name="title_activity_profil_activty">ProfilActivty</string>
+    <string name="title_activity_profil">ProfilActivity</string>
+
+    <string name="navigation_drawer_open">Open navigation drawer</string>
+    <string name="navigation_drawer_close">Close navigation drawer</string>
+</resources>

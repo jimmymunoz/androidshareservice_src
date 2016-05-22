@@ -70,7 +70,7 @@
             android:id="@+id/buttonlogin"
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
-            android:text="@string/text_btn_register"
+            android:text="Login"
             android:textColor="@android:color/white"
             android:background="#008080"
             android:layout_marginTop="10dp" />

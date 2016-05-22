@@ -299,6 +299,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         // as you specify a parent activity in AndroidManifest.xml.
         int id = item.getItemId();
         if (id == R.id.action_settings) {
+            Authenticate.logout(myContext);
+            Toast.makeText(myContext, "Bye", Toast.LENGTH_LONG).show();
             return true;
         }
         return super.onOptionsItemSelected(item);

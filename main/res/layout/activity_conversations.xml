@@ -5,12 +5,14 @@
     android:orientation="vertical"
     tools:context="ikbal_jimmy.shareservices.ConversationsActivity">
 
+    <!--
     <TextView
         android:layout_width="244dp"
         android:layout_height="wrap_content"
         android:textAppearance="?android:attr/textAppearanceLarge"
         android:text="IKBAAAL"
         android:id="@+id/textView" />
+       -->
 
     <ListView
         android:id="@+id/conversation_list"
@@ -25,11 +27,13 @@
         android:layout_height="wrap_content"
         android:orientation="horizontal" >
 
+        <!--
         <Button
             android:id="@+id/button_send"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Return" />
+            -->
     </LinearLayout>
 
 </LinearLayout>

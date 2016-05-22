@@ -3,7 +3,6 @@ package fragments;
 import android.app.Activity;
 import android.app.Fragment;
 import android.content.Context;
-import android.content.Intent;
 import android.content.SharedPreferences;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
@@ -25,10 +24,8 @@ import java.util.ArrayList;
 
 import Config.ConstValue;
 import adapters.SearcheAdapter;
-import adapters.ServiceCategoryAdapter;
 import ikbal_jimmy.shareservices.R;
 import ikbal_jimmy.shareservices.RestHelper;
-import ikbal_jimmy.shareservices.ServiceCategory;
 import ikbal_jimmy.shareservices.ServiceShare;
 
 public class ServiceCategoryFragment extends Fragment {

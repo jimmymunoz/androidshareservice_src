@@ -51,7 +51,7 @@ public class MessagesActivity extends AppCompatActivity {
         Bundle extras = intentMain.getExtras();
         id_conversation = extras.getString("id_conversation");
         id_reciver = extras.getString("id_reciver");
-
+        setTitle("Conversation :" + id_conversation);
         id_user_logged = Authenticate.getIdUserLogged(myContext);//TODO: Get from Session
 
 

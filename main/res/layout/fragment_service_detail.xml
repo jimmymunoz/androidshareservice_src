@@ -4,16 +4,68 @@
     android:layout_height="match_parent"
     tools:context="fragments.ServiceDetailFragment">
 
-    <!-- TODO: Update blank fragment layout -->
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignTop="@+id/imageIcon"
+        android:layout_toRightOf="@+id/imageIcon"
+        android:orientation="vertical" >
+
+        <TextView
+            android:id="@+id/titreservice"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="TextView"
+            android:textSize="@dimen/font_size_big" />
+
+        <TextView
+            android:id="@+id/titrecategory"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="TextView" />
+
+        <LinearLayout
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignLeft="@+id/imageIcon"
+            android:layout_below="@+id/imageIcon"
+            android:layout_marginTop="1dp" >
+
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:gravity="left"
+                android:layout_weight="1" >
+
+
+                <TextView
+                    android:id="@+id/adresseservice"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="2dp"
+                    android:text="address" />
+            </LinearLayout>
+
+        </LinearLayout>
+
+    </LinearLayout>
+
 
     <Button
         android:id="@+id/button_tmp_navigation"
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
-        android:text="tmp_delete_payment"
+        android:text="tmp_order_result"
         android:background="#70c8d6"
         android:textColor="@android:color/white"
         android:layout_alignParentRight="true"
-        android:layout_alignParentEnd="true" />
+        android:layout_alignParentEnd="true"
+        android:layout_gravity="center_horizontal|bottom" />
+
+
+
+
+
 
 </FrameLayout>

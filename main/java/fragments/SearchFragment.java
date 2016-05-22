@@ -48,6 +48,8 @@ public class SearchFragment extends Fragment{
         settings = act.getSharedPreferences(ConstValue.MAIN_PREF, 0);
 
 
+
+
         rootView.findViewById(R.id.button1).
             setOnClickListener(new View.OnClickListener() {
                 @Override

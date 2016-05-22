@@ -2,6 +2,7 @@ package fragments;
 
 import android.app.Activity;
 import android.app.Fragment;
+import android.app.FragmentManager;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.AsyncTask;
@@ -106,13 +107,24 @@ public class ServicesFragment extends Fragment{
 							Intent intent = new Intent(act,BookAppointmentActivity.class);
 							startActivity(intent);
 
-
-					*/
-				String  id_category = service_array.get(arg2).get("id_category_service");
+String  id_category = service_array.get(arg2).get("id_category_service");
 				Toast.makeText(getActivity(), "id_categoory"+service_array.get(arg2).get("id_category_service"), Toast.LENGTH_LONG).show();
 				Intent intent = new Intent(getActivity(), ServiceCategoryFragment.class);
 				intent.putExtra("id_category",id_category);
 				getActivity().startActivity(intent);
+
+					*/
+					String  id_category = service_array.get(arg2).get("id_category_service");
+					Fragment fragment = new ServiceCategoryFragment();
+
+					Bundle args = new Bundle();
+					args.putString("id_category", id_category);
+					fragment.setArguments(args);
+					//args.putInt(PlanetFragment.ARG_PLANET_NUMBER, position);
+					FragmentManager fragmentManager = getFragmentManager();
+					fragmentManager.beginTransaction().replace(R.id.content_frame, fragment).commit();
+
+
 
 			}
 		});
@@ -242,7 +254,15 @@ public class ServicesFragment extends Fragment{
 		*/
 String  id_category_service;
 String  name;
-
+		category_service_array.add(
+				new HashMap<String, String>() {{
+					put("id_category_service", "8");
+					put("name", "Housecleaning Service");
+					put("image", "1423488992.jpg");
+					put("status", "1");
+					put("order", "0");
+				}}
+		);
 		category_service_array.add(
 				new HashMap<String, String>() {{
 					put("id_category_service", "1");

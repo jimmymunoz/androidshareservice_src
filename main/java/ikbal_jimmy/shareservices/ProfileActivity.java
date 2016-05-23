@@ -116,7 +116,7 @@ public class ProfileActivity extends AppCompatActivity
             Intent intent = new Intent(myContext, UserServiceListActivity.class);
             myContext.startActivity(intent);
         } else if (id == R.id.nav_manage) {
-            Intent intent = new Intent(myContext, ConversationsActivity.class);
+            Intent intent = new Intent(myContext, ValidateCodeActivity.class);
             myContext.startActivity(intent);
         }
 

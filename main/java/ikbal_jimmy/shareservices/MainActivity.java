@@ -45,11 +45,17 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+
         super.onCreate(savedInstanceState);
         myContext = this;
         //Authenticate.loadApiKey(myContext);
         Authenticate.loadUserData(myContext);
+      /*  String api_key = Authenticate.getApiKey();
+        if (api_key == null) {
+            LinearLayout message= (LinearLayout) findViewById(R.id.tab1);
+            message.();}
 
+        }*/
         /*
         LinearLayout tab1 = (LinearLayout)findViewById(R.id.tab1);
         LinearLayout tab2 = (LinearLayout)findViewById(R.id.tab2);
@@ -137,9 +143,9 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             @Override
             public void onClick(View v) {
                 //intentDisplayContacts.putExtra("display_from", "activity");
-
                 String api_key = Authenticate.getApiKey();
                 if (api_key != null) {
+
                     startActivity(new Intent(getApplicationContext(), AddSerciceActivity.class));
 
                 } else {
@@ -152,6 +158,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         searcheservice.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+
 
                 Fragment fragment = new SearchFragment();
                 Bundle args = new Bundle();

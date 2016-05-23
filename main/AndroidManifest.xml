@@ -66,7 +66,13 @@
             android:name=".UserOrdersActivity"
             android:label="@string/title_activity_user_orders" />
         <activity android:name=".OrderDetailActivity" />
-        <activity android:name=".ServiceDetailActivity"></activity>
+        <activity android:name=".ServiceDetailActivity" />
+
+        <uses-feature
+            android:name="android.hardware.sensor.accelerometer"
+            android:required="true" />
+
+        <activity android:name=".ValidateCodeActivity"></activity>
     </application>
 
 </manifest>

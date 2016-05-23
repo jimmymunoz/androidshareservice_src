@@ -26,15 +26,17 @@
         android:background = "#000000">
         <LinearLayout
             android:id="@+id/searcheservice"
-
-
             android:layout_width="0dp"
             android:layout_height="match_parent"
             android:layout_weight="1"
             android:orientation="vertical"
             android:background="@drawable/couleurfocus"
             android:clickable="true"
+            android:onClick="onClick"
             android:focusable="true">
+
+
+
 
             <ImageView
                 android:id="@+id/ImageView01"

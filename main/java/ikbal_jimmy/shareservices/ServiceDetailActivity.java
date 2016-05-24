@@ -37,6 +37,7 @@ public class ServiceDetailActivity extends Activity {
 
         act = this;
         myContext = this;
+        setTitle("Service de laverie");
 
         Intent intentMain = getIntent();
         Bundle extras = intentMain.getExtras();
@@ -47,7 +48,18 @@ public class ServiceDetailActivity extends Activity {
                 @Override
                 public void onClick(View v) {
                     //Toast.makeText(myContext, "Payer  :" + id_service, Toast.LENGTH_LONG).show();
+
+                String api_key = Authenticate.getApiKey();
+                if (api_key != null) {
+                     /*si l'utilisateur  est connecté */
                     new HttpPayOrderTask().execute(id_service);
+
+                } else {
+                    /*sinon il dois  se  connecté */
+                    startActivity(new Intent(getApplicationContext(), UnidentifiedActivity.class));
+
+                }
+
                 }
             });
 

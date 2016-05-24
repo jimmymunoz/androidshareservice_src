@@ -23,6 +23,7 @@ public class RegisterActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         myContext = this;
+        setTitle("Inscription");
         setContentView(R.layout.activity_register);
 
 

@@ -25,6 +25,7 @@ public class LoginActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
         myContext =this;
+        setTitle("Login");
         String apikey = Authenticate.getApiKey();;
         //Toast.makeText(myContext, "Bienvenue " + apikey, Toast.LENGTH_LONG).show();
         //Toast.makeText(myContext, "api key session:" + apikey, Toast.LENGTH_LONG).show();
@@ -34,24 +35,24 @@ public class LoginActivity extends AppCompatActivity {
                     public void onClick(View v) {
 
 
-                        EditText passeword = (EditText) findViewById(R.id.passewordLogin);
-                        String passe= passeword.getText().toString();
-                        // String passe= "pasword ";
-                        EditText editemail = (EditText) findViewById(R.id.Emaillogin);
-                        String email= editemail.getText().toString();
+                    EditText passeword = (EditText) findViewById(R.id.passewordLogin);
+                    String passe= passeword.getText().toString();
+                    // String passe= "pasword ";
+                    EditText editemail = (EditText) findViewById(R.id.Emaillogin);
+                    String email= editemail.getText().toString();
 
-                        String task = "";
-                        ConnectivityManager connMgr = (ConnectivityManager)
-                                getSystemService(Context.CONNECTIVITY_SERVICE);
-                        NetworkInfo networkInfo = connMgr.getActiveNetworkInfo();
-                        if (networkInfo != null && networkInfo.isConnected()) {
-                            new HttpRequestTask().execute(email,passe);
-                        } else {
-                            Toast.makeText(myContext, "No network connection available.", Toast.LENGTH_LONG).show();
-                            //textView.setText("No network connection available.");
-                        }
+                    String task = "";
+                    ConnectivityManager connMgr = (ConnectivityManager)
+                            getSystemService(Context.CONNECTIVITY_SERVICE);
+                    NetworkInfo networkInfo = connMgr.getActiveNetworkInfo();
+                    if (networkInfo != null && networkInfo.isConnected()) {
+                        new HttpRequestTask().execute(email,passe);
+                    } else {
+                        Toast.makeText(myContext, "No network connection available.", Toast.LENGTH_LONG).show();
+                        //textView.setText("No network connection available.");
                     }
-                });
+                }
+            });
     }
 
     private class HttpRequestTask extends AsyncTask<String, Void, String> {
@@ -88,7 +89,7 @@ public class LoginActivity extends AppCompatActivity {
                     String id_user = jsonRootObject.optString("id_user").toString();
                     String phone = jsonRootObject.optString("phone").toString();
 
-                    Toast.makeText(myContext, "Bienvenue :" + pseudo, Toast.LENGTH_LONG).show();
+                    Toast.makeText(myContext, "Bienvenue " + pseudo + "!", Toast.LENGTH_LONG ).show();
                     Authenticate.setApiKey(apikey, myContext);
                     Authenticate.setUserLoginData(apikey, first_name, last_name, pseudo, email, id_user, phone, myContext);
 

@@ -7,8 +7,6 @@ import android.os.AsyncTask;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
-import android.widget.ListAdapter;
-import android.widget.ListView;
 import android.widget.Toast;
 
 import org.json.JSONArray;
@@ -19,7 +17,6 @@ import java.util.ArrayList;
 import java.util.HashMap;
 
 import Config.ConstValue;
-import adapters.ServiceCategoryAdapter;
 
 public class ServiceCategoryActivity extends AppCompatActivity {
     Context myContext;
@@ -29,6 +26,7 @@ public class ServiceCategoryActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_service_category);
         myContext = this;
+        setTitle("Services par categorie");
 
         String id_category = getIntent().getStringExtra("id_category");
         ConnectivityManager connMgr = (ConnectivityManager)

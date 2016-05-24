@@ -44,7 +44,7 @@ public class MessagesActivity extends AppCompatActivity {
         myContext = this;
         customHandler = new android.os.Handler();
         activity_running = true;
-
+        setTitle("Messages");
         setContentView(R.layout.activity_messages);
 
         Intent intentMain = getIntent();

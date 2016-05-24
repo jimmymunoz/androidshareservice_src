@@ -35,6 +35,7 @@ public class OrderDetailActivity extends Activity {
         Intent intentMain = getIntent();
         Bundle extras = intentMain.getExtras();
         id_order = extras.getString("id_order");
+        setTitle("Commande " + id_order);
 
         ConnectivityManager connMgr = (ConnectivityManager) getSystemService(Context.CONNECTIVITY_SERVICE);
         NetworkInfo networkInfo = connMgr.getActiveNetworkInfo();

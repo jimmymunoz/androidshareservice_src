@@ -2,9 +2,7 @@ package fragments;
 
 import android.app.Activity;
 import android.app.Fragment;
-import android.app.FragmentManager;
 import android.content.Context;
-import android.content.Intent;
 import android.content.SharedPreferences;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
@@ -27,10 +25,8 @@ import java.util.ArrayList;
 
 import Config.ConstValue;
 import adapters.SearcheAdapter;
-import ikbal_jimmy.shareservices.MessagesActivity;
 import ikbal_jimmy.shareservices.R;
 import ikbal_jimmy.shareservices.RestHelper;
-import ikbal_jimmy.shareservices.ServiceDetailFragmentActivity;
 import ikbal_jimmy.shareservices.ServiceShare;
 
 //import com.servproapp.BookAppointmentActivity;
@@ -69,22 +65,6 @@ public class SearchFragment extends Fragment{
                 }
             }
         });
-
-        rootView.findViewById(R.id.button_tmp_navigation).
-            setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View v) {
-                    /*Intent intent = new Intent(getActivity(), ServiceDetailFragmentActivity.class);
-                    getActivity().startActivity(intent);*/
-                   Fragment fragment = new ServiceDetailFragment();
-                    Bundle args = new Bundle();
-                    fragment.setArguments(args);
-                    //args.putInt(PlanetFragment.ARG_PLANET_NUMBER, position);
-                    FragmentManager fragmentManager = getFragmentManager();
-                    fragmentManager.beginTransaction().replace(R.id.content_frame, fragment).commit();
-                }
-
-            });
 
         listeServices = new ArrayList<ServiceShare>();
         adapter = new SearcheAdapter(getActivity(), listeServices);

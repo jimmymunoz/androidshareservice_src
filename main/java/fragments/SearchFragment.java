@@ -38,6 +38,7 @@ public class SearchFragment extends Fragment{
 
     private static  ArrayList<ServiceShare> listeServices;
     static ArrayAdapter<ServiceShare> adapter;
+
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
 
@@ -45,7 +46,6 @@ public class SearchFragment extends Fragment{
         final View rootView = inflater.inflate(R.layout.activity_activity_search, container, false);
         act =getActivity();
         settings = act.getSharedPreferences(ConstValue.MAIN_PREF, 0);
-        //setTitle("Recherche par nom" );
 
         rootView.findViewById(R.id.button1).
             setOnClickListener(new View.OnClickListener() {
@@ -61,14 +61,12 @@ public class SearchFragment extends Fragment{
                     new HttpSearchServiceRequestTask().execute(DetailServicesearch);
                 } else {
                     Toast.makeText(getActivity(), "No network connection available.", Toast.LENGTH_LONG).show();
-                    //textView.setText("No network connection available.");
                 }
             }
         });
 
         listeServices = new ArrayList<ServiceShare>();
         adapter = new SearcheAdapter(getActivity(), listeServices);
-        //ListAdapter adapter = new ArrayAdapter(myContext, android.R.layout.simple_list_item_1, ListMessages);
         ListView vue = (ListView) rootView.findViewById(R.id.search_service_list);
         vue.setAdapter(adapter);
         return rootView;

@@ -36,13 +36,7 @@ public class ConversationAdapter extends ArrayAdapter<Conversation> {
         if (convertView == null) {
             holder = new ViewHolder();
             convertView = LayoutInflater.from(getContext()).inflate(R.layout.row_conversation, parent, false);
-
-            //convertView.setTag(holder);
-        } else {
-            //holder = (ViewHolder)convertView.getTag();
         }
-        //holder.textView.setText(mData.get(position));
-
         TextView textview_user = (TextView) convertView.findViewById(R.id.textView1);
         textview_user.setText(conversation.reciver_pseudo);
         TextView textview_message = (TextView) convertView.findViewById(R.id.textView2);
@@ -56,12 +50,10 @@ public class ConversationAdapter extends ArrayAdapter<Conversation> {
 
             @Override
             public void onClick(View v) {
-                //send conversation id
-                Intent intent = new Intent(myContext, MessagesActivity.class);
-                intent.putExtra("id_conversation", conversation.id_conversation);
-                intent.putExtra("id_reciver", conversation.id_reciver);
-                myContext.startActivity(intent);
-                //Toast.makeText(myContext, "Load Messages, id_conversation: " + conversation.id_conversation, Toast.LENGTH_LONG).show();
+            Intent intent = new Intent(myContext, MessagesActivity.class);
+            intent.putExtra("id_conversation", conversation.id_conversation);
+            intent.putExtra("id_reciver", conversation.id_reciver);
+            myContext.startActivity(intent);
             }
         });
 

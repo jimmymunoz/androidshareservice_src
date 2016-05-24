@@ -78,9 +78,7 @@ public class ValidateCodeActivity extends AppCompatActivity implements SensorEve
 
     @Override
     public void onSensorChanged(SensorEvent event) {
-        //ShowToast("Test");
         rl = (LinearLayout)findViewById(R.id.linearLayout4);
-
 
         if (mSensor.getType() == Sensor.TYPE_ACCELEROMETER ) {
             float x = event.values[0];
@@ -97,7 +95,7 @@ public class ValidateCodeActivity extends AppCompatActivity implements SensorEve
                     this.onPause();
 
                     ShowToast("Code envoyé :" + codeET.getText());
-                    //new HttpValidateCodeTask().execute(codeET.getText().toString());
+                    new HttpValidateCodeTask().execute(codeET.getText().toString());
                 }
                 else{
                     rl.setBackgroundColor(Color.WHITE);

@@ -117,15 +117,11 @@ public class MessagesActivity extends AppCompatActivity {
     {
         public void run()
         {
-            //write here whaterver you want to repeat
             if( Authenticate.getApiKey() != null ){
                 new HttGetConversationMessagesTask().execute(id_conversation, id_user_logged);
             }
-            else{
-                //Log.d("Handlers", "No Api key");
-            }
             if( activity_running ){
-                customHandler.postDelayed(this, refreshTime);
+                customHandler.postDelayed(this, refreshTime);// Jimmy -> Mis à jour chaque 1 segs  1000//milliseconds
             }
 
         }

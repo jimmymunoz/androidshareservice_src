@@ -37,7 +37,6 @@ public class NotificationService extends Service {
         myContext = this;
         customHandler = new android.os.Handler();
         Toast.makeText(myContext, "Init Service", Toast.LENGTH_LONG).show();
-
         customHandler.postDelayed(updateTimerThread, 0);
 
     }
@@ -49,15 +48,12 @@ public class NotificationService extends Service {
     {
         public void run()
         {
-            //write here whaterver you want to repeat
             if( Authenticate.getApiKey() != null ){
-                //Log.d("Handlers", "HttGetUserPendingNoftificationsTask");
                 new HttGetUserPendingNoftificationsTask().execute("");
             }
             else{
                 //Log.d("Handlers", "No Api key");
             }
-
             customHandler.postDelayed(this, 60000);
         }
     };
@@ -66,9 +62,7 @@ public class NotificationService extends Service {
     @Override
     public void onDestroy(){
         Toast.makeText(myContext, "Destroy Service", Toast.LENGTH_LONG).show();
-
         super.onDestroy();
-
     }
 
     @Override

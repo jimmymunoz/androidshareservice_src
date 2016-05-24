@@ -80,37 +80,31 @@ public class ValidateCodeActivity extends AppCompatActivity implements SensorEve
     public void onSensorChanged(SensorEvent event) {
         //ShowToast("Test");
         rl = (LinearLayout)findViewById(R.id.linearLayout4);
-        codeET = (EditText) findViewById(R.id.editText1);
 
-        if (mSensor.getType() == Sensor.TYPE_ACCELEROMETER && codeET.getText().length() > 0 ) {
+
+        if (mSensor.getType() == Sensor.TYPE_ACCELEROMETER ) {
             float x = event.values[0];
             float y = event.values[1];
             float z = event.values[2];
 
             double total = Math.sqrt(x * x + y * y + z * z);
 
-            if( total > 11 ){
-                TextView textViewok = (TextView)findViewById(R.id.result_ok);
-                textViewok.setText("");
+            codeET = (EditText) findViewById(R.id.editText1);
+            if(  codeET.getText().length() > 0 ){
+                if( total > 12 ){
 
-                TextView textViewError = (TextView)findViewById(R.id.result_error);
-                textViewError.setText("");
+                    rl.setBackgroundColor(Color.parseColor("#008080"));
+                    this.onPause();
 
-                rl.setBackgroundColor(Color.parseColor("#008080"));
-                this.onPause();
-
-
-                ShowToast("Envoyant le code :" + codeET.getText());
+                    ShowToast("Code envoyé :" + codeET.getText());
+                    //new HttpValidateCodeTask().execute(codeET.getText().toString());
+                }
+                else{
+                    rl.setBackgroundColor(Color.WHITE);
+                }
             }
-            /*
-            else if( total > 9 ){
 
-                rl.setBackgroundColor(Color.WHITE);
-            }
-            */
-            else{
-                rl.setBackgroundColor(Color.WHITE);
-            }
+
         }
 
     }
@@ -151,19 +145,27 @@ public class ValidateCodeActivity extends AppCompatActivity implements SensorEve
         @Override
         protected void onPostExecute(String responseUrl) {
             Toast.makeText(myContext, "Regsiter Response :" + responseUrl, Toast.LENGTH_LONG).show();
+            TextView textViewok;
+            TextView textViewError;
             try {
                 JSONObject jsonRootObject = new JSONObject(responseUrl);
                 if( jsonRootObject.optString("error").toString().equals("1") ){
                     Toast.makeText(myContext, "Error :" + jsonRootObject.optString("message").toString(), Toast.LENGTH_LONG).show();
+
+                    textViewok = (TextView)findViewById(R.id.result_ok);
+                    textViewok.setText("");
+
+                    textViewError = (TextView)findViewById(R.id.result_error);
+                    textViewError.setText(jsonRootObject.optString("message").toString());
+
                 }
                 else{
+                    textViewError = (TextView)findViewById(R.id.result_error);
+                    textViewError.setText("");
 
-                    if( jsonRootObject.optString("error").toString().equals("1") ){
-                        //Toast.makeText(myContext, "Error :" + jsonRootObject.optString("message").toString(), Toast.LENGTH_LONG).show();
-                    }
-                    else{
+                    textViewok = (TextView)findViewById(R.id.result_ok);
+                    textViewok.setText( jsonRootObject.optString("message").toString() );
 
-                    }
                 }
             } catch (JSONException e) {
                 e.printStackTrace();

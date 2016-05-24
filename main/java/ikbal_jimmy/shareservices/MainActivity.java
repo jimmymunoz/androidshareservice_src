@@ -9,13 +9,16 @@ import android.net.NetworkInfo;
 import android.net.Uri;
 import android.os.AsyncTask;
 import android.os.Bundle;
+import android.support.design.widget.NavigationView;
+import android.support.v4.view.GravityCompat;
+import android.support.v4.widget.DrawerLayout;
+import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.app.AppCompatActivity;
+import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
-import android.widget.EditText;
 import android.widget.LinearLayout;
-import android.widget.TextView;
 import android.widget.Toast;
 
 import com.google.android.gms.appindexing.Action;
@@ -32,10 +35,8 @@ import fragments.ConversationFragment;
 import fragments.SearchFragment;
 import fragments.ServicesFragment;
 
-public class MainActivity extends AppCompatActivity implements View.OnClickListener {
+public class MainActivity extends AppCompatActivity implements View.OnClickListener, NavigationView.OnNavigationItemSelectedListener {
     private static final String DEBUG_TAG = "HttpExample";//http://46.101.40.23/shareserviceserver/v1/register
-    private EditText urlText;
-    private TextView textView;
     private Context myContext;
     /**
      * ATTENTION: This was auto-generated to implement the App Indexing API.
@@ -48,8 +49,26 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
         super.onCreate(savedInstanceState);
         myContext = this;
-        //Authenticate.loadApiKey(myContext);
+        setContentView(R.layout.activity_main);
+
+        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
+        setSupportActionBar(toolbar);
+        //setTitle("R");
+
         Authenticate.loadUserData(myContext);
+        updateUserData();
+
+        DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
+        ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(
+                this, drawer, toolbar, R.string.navigation_drawer_open, R.string.navigation_drawer_close);
+        drawer.setDrawerListener(toggle);
+        toggle.syncState();
+
+        NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
+        navigationView.setNavigationItemSelectedListener(this);
+
+
+
       /*  String api_key = Authenticate.getApiKey();
         if (api_key == null) {
             LinearLayout message= (LinearLayout) findViewById(R.id.tab1);
@@ -72,11 +91,15 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
         if (getIntent().hasExtra("position")) {
             selectItem(getIntent().getExtras().getInt("position"));
-        } else
+        } else {
             selectItem(2);
+        }
+
+
+
 
         //textView = (TextView) findViewById(R.id.myText);
-        setContentView(R.layout.activity_main);
+
         //Button btnOk = (Button) findViewById(R.id.btn_test_rest);
         View.OnClickListener oclBtnOk = new View.OnClickListener() {
             @Override
@@ -120,18 +143,18 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         Acount.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                //intentDisplayContacts.putExtra("display_from", "activity");
+            //intentDisplayContacts.putExtra("display_from", "activity");
 
-                String api_key = Authenticate.getApiKey();
-                if (api_key != null) {
-                    /*si l'utilisateur  est connecté */
-                    startActivity(new Intent(getApplicationContext(), ProfileActivity.class));
+            String api_key = Authenticate.getApiKey();
+            if (api_key != null) {
+                /*si l'utilisateur  est connecté */
+                startActivity(new Intent(getApplicationContext(), ProfileActivity.class));
 
-                } else {
-                    /*sinon il dois  se  connecté */
-                    startActivity(new Intent(getApplicationContext(), UnidentifiedActivity.class));
+            } else {
+                /*sinon il dois  se  connecté */
+                startActivity(new Intent(getApplicationContext(), UnidentifiedActivity.class));
 
-                }
+            }
             }
         });
 
@@ -142,15 +165,15 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         addService.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                //intentDisplayContacts.putExtra("display_from", "activity");
-                String api_key = Authenticate.getApiKey();
-                if (api_key != null) {
+            //intentDisplayContacts.putExtra("display_from", "activity");
+            String api_key = Authenticate.getApiKey();
+            if (api_key != null) {
 
-                    startActivity(new Intent(getApplicationContext(), AddSerciceActivity.class));
+                startActivity(new Intent(getApplicationContext(), AddSerciceActivity.class));
 
-                } else {
-                    startActivity(new Intent(getApplicationContext(), UnidentifiedActivity.class));
-                }
+            } else {
+                startActivity(new Intent(getApplicationContext(), UnidentifiedActivity.class));
+            }
             }
         });
 
@@ -168,6 +191,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 fragmentManager.beginTransaction().replace(R.id.content_frame, fragment).commit();
             }
         });
+
 
         startService(new Intent(myContext, NotificationService.class));
         
@@ -196,6 +220,19 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 Uri.parse("android-app://ikbal_jimmy.shareservices/http/host/path")
         );
         AppIndex.AppIndexApi.start(client, viewAction);
+    }
+
+    public void updateUserData(){
+        /*
+        if (Authenticate.getApiKey() != null) {
+            TextView textView = (TextView) findViewById(R.id.user_name_account);
+            textView.setText(Authenticate.pseudo);
+
+        } else {
+            TextView textView = (TextView) findViewById(R.id.user_name_account);
+            textView.setText("Non Conecté");
+        }
+        */
     }
 
 
@@ -234,6 +271,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         AppIndex.AppIndexApi.end(client, viewAction);
         client.disconnect();
     }
+
 
     // Uses AsyncTask to create a task away from the main UI thread. This task takes a
     // URL string and uses it to create an HttpUrlConnection. Once the connection
@@ -292,13 +330,16 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         }
     }
 
+    /*
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.
         getMenuInflater().inflate(R.menu.main, menu);
         return true;
     }
+    */
 
+    /*
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         // Handle action bar item clicks here. The action bar will
@@ -312,7 +353,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         }
         return super.onOptionsItemSelected(item);
     }
-
+    */
 
     private void selectItem(int position) {
 
@@ -370,5 +411,70 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 break;
         }
         */
+    }
+
+    @Override
+    public void onBackPressed() {
+
+        DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
+        if (drawer.isDrawerOpen(GravityCompat.START)) {
+            drawer.closeDrawer(GravityCompat.START);
+        } else {
+            super.onBackPressed();
+        }
+    }
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        // Inflate the menu; this adds items to the action bar if it is present.
+        getMenuInflater().inflate(R.menu.profil, menu);
+        return true;
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        // Handle action bar item clicks here. The action bar will
+        // automatically handle clicks on the Home/Up button, so long
+        // as you specify a parent activity in AndroidManifest.xml.
+        int id = item.getItemId();
+
+        //noinspection SimplifiableIfStatement
+        if (id == R.id.action_settings) {
+            Authenticate.logout(myContext);
+            Toast.makeText(myContext, "Bye", Toast.LENGTH_LONG).show();
+            return true;
+        }
+
+        return super.onOptionsItemSelected(item);
+    }
+
+    @SuppressWarnings("StatementWithEmptyBody")
+    @Override
+    public boolean onNavigationItemSelected(MenuItem item) {
+        // Handle navigation view item clicks here.
+        int id = item.getItemId();
+
+        if (id == R.id.nav_camera) {
+            // Handle the camera action
+            Intent intent = new Intent(myContext, ConversationsActivity.class);
+            myContext.startActivity(intent);
+        } else if (id == R.id.nav_gallery) {
+            Intent intent = new Intent(myContext, UserOrdersActivity.class);
+            myContext.startActivity(intent);
+        } else if (id == R.id.nav_slideshow) {
+            Intent intent = new Intent(myContext, UserServiceListActivity.class);
+            myContext.startActivity(intent);
+        } else if (id == R.id.nav_validate_codes) {
+            Intent intent = new Intent(myContext, ValidateCodeActivity.class);
+            myContext.startActivity(intent);
+        } else if (id == R.id.nav_manage) {
+            Authenticate.logout(myContext);
+            Toast.makeText(myContext, "Bye!", Toast.LENGTH_LONG).show();
+            startActivity(new Intent(getApplicationContext(), MainActivity.class));
+        }
+
+        DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
+        drawer.closeDrawer(GravityCompat.START);
+        return true;
     }
 }

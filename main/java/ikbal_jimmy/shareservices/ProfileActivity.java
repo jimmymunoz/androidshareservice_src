@@ -6,38 +6,25 @@ import android.os.Bundle;
 import android.support.design.widget.NavigationView;
 import android.support.v4.view.GravityCompat;
 import android.support.v4.widget.DrawerLayout;
-import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.app.AppCompatActivity;
-import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.TextView;
 import android.widget.Toast;
 
-public class ProfileActivity extends AppCompatActivity
-        implements NavigationView.OnNavigationItemSelectedListener {
+public class ProfileActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener {
     Context myContext;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_profile);
+        setContentView(R.layout.content_profile);
+        setTitle("Mon compte");
+        /*
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
-        myContext = this;
-        /*
-        FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
-        Authenticate.loadUserData(myContext);
         */
-
-        DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
-        ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(
-                this, drawer, toolbar, R.string.navigation_drawer_open, R.string.navigation_drawer_close);
-        drawer.setDrawerListener(toggle);
-        toggle.syncState();
-
-        NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
-        navigationView.setNavigationItemSelectedListener(this);
+        myContext = this;
 
         TextView pseudo = (TextView) findViewById(R.id.editPseudo);
         pseudo.setText(Authenticate.pseudo);
@@ -55,6 +42,7 @@ public class ProfileActivity extends AppCompatActivity
         editemail.setText(Authenticate.email);
 
 
+
         findViewById(R.id.button_logout).
             setOnClickListener(new View.OnClickListener() {
                 @Override
@@ -64,6 +52,7 @@ public class ProfileActivity extends AppCompatActivity
                     startActivity(new Intent(getApplicationContext(), MainActivity.class));
                 }
             });
+
     }
 
     @Override
@@ -115,9 +104,13 @@ public class ProfileActivity extends AppCompatActivity
         } else if (id == R.id.nav_slideshow) {
             Intent intent = new Intent(myContext, UserServiceListActivity.class);
             myContext.startActivity(intent);
-        } else if (id == R.id.nav_manage) {
+        } else if (id == R.id.nav_validate_codes) {
             Intent intent = new Intent(myContext, ValidateCodeActivity.class);
             myContext.startActivity(intent);
+        } else if (id == R.id.nav_manage) {
+            Authenticate.logout(myContext);
+            Toast.makeText(myContext, "Bye!", Toast.LENGTH_LONG).show();
+            startActivity(new Intent(getApplicationContext(), MainActivity.class));
         }
 
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);

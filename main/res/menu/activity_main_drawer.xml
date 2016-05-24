@@ -14,7 +14,10 @@
             android:id="@+id/nav_slideshow"
             android:icon="@drawable/ic_launcher"
             android:title="Mes Service " />
-
+        <item
+            android:id="@+id/nav_validate_codes"
+            android:icon="@drawable/ic_launcher"
+            android:title="Validation des codes" />
         <item
             android:id="@+id/nav_manage"
             android:icon="@drawable/logout"

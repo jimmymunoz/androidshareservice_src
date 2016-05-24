@@ -104,6 +104,10 @@ public class NotificationService extends Service {
                 resultIntent = new Intent(this, ConversationsActivity.class);
                 stackBuilder.addParentStack(ConversationsActivity.class);
                 break;
+            case "Orders":
+                resultIntent = new Intent(this, UserOrdersActivity.class);
+                stackBuilder.addParentStack(UserOrdersActivity.class);
+                break;
             default:
                 resultIntent = new Intent(this, MainActivity.class);
                 stackBuilder.addParentStack(MainActivity.class);

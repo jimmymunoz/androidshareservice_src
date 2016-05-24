@@ -1,5 +1,4 @@
-package fragments;
-
+package ikbal_jimmy.shareservices;
 
 import android.app.Activity;
 import android.content.Context;
@@ -8,11 +7,8 @@ import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
 import android.os.AsyncTask;
 import android.os.Bundle;
-import android.support.v4.app.Fragment;
 import android.util.Log;
-import android.view.LayoutInflater;
 import android.view.View;
-import android.view.ViewGroup;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -22,18 +18,11 @@ import org.json.JSONObject;
 import java.util.HashMap;
 
 import Config.ConstValue;
-import ikbal_jimmy.shareservices.OrderDetailActivity;
-import ikbal_jimmy.shareservices.R;
-import ikbal_jimmy.shareservices.RestHelper;
-import ikbal_jimmy.shareservices.ServiceShare;
 
-/**
- * A simple {@link Fragment} subclass.
- */
-public class ServiceDetailFragment extends android.app.Fragment {
+
+public class ServiceDetailActivity extends Activity {
     String id_service;
     static Activity act;
-    public static View rootview2;
     static TextView titre_texte;
     static TextView description_texte;
     static TextView texteview_address;
@@ -41,65 +30,53 @@ public class ServiceDetailFragment extends android.app.Fragment {
     static TextView text_prix;
     Context myContext;
 
-    public ServiceDetailFragment() {
-        // Required empty public constructor
-    }
-
-
     @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container,Bundle savedInstanceState) {
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.fragment_service_detail);
 
-        act = getActivity();
-        myContext = act;
-        Bundle arg = this.getArguments();
-        id_service = arg.getString("id_service");
-        rootview2 = inflater.inflate(R.layout.fragment_service_detail, container, false);
-        final View rootView = inflater.inflate(R.layout.fragment_service_detail, container, false);
-        //rootview2 = rootView;
-        rootView.findViewById(R.id.Button_paiment).
-                setOnClickListener(new View.OnClickListener() {
-                    @Override
-                    public void onClick(View v) {
+        act = this;
+        myContext = this;
 
-                        Toast.makeText(getActivity(), "Payment  :" + id_service, Toast.LENGTH_LONG).show();
-                        new HttpPayOrderTask().execute(id_service);
-                        /*
-                        android.app.Fragment fragment = new PaymentFragment();
+        Intent intentMain = getIntent();
+        Bundle extras = intentMain.getExtras();
+        id_service = extras.getString("id_service");
 
-                        Bundle args = new Bundle();
-                        fragment.setArguments(args);
-                        //args.putInt(PlanetFragment.ARG_PLANET_NUMBER, position);
-                        FragmentManager fragmentManager = getFragmentManager();
-                        fragmentManager.beginTransaction().replace(R.id.content_frame, fragment).commit();
-                        */
-                    }
-                });
+        findViewById(R.id.Button_paiment).
+            setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    //Toast.makeText(myContext, "Payer  :" + id_service, Toast.LENGTH_LONG).show();
+                    new HttpPayOrderTask().execute(id_service);
+                }
+            });
 
 
-        ConnectivityManager connMgr = (ConnectivityManager) getActivity().getSystemService(Context.CONNECTIVITY_SERVICE);
+        ConnectivityManager connMgr = (ConnectivityManager) getSystemService(Context.CONNECTIVITY_SERVICE);
         NetworkInfo networkInfo = connMgr.getActiveNetworkInfo();
         if (networkInfo != null && networkInfo.isConnected()) {
             new HttGetDetailService().execute(id_service);
         } else {
 
         }
-        titre_texte = (TextView) rootView.findViewById(R.id.titreservice);
-        description_texte = (TextView) rootView.findViewById(R.id.descriptionservice);
-        texteview_address = (TextView) rootView.findViewById(R.id.adresseservice);
-        texteview_category = (TextView)rootView.findViewById(R.id.titrecategory);
-        text_prix = (TextView) rootView.findViewById(R.id.priceservice);
+        titre_texte = (TextView) findViewById(R.id.titreservice);
+        description_texte = (TextView) findViewById(R.id.descriptionservice);
+        texteview_address = (TextView) findViewById(R.id.adresseservice);
+        texteview_category = (TextView)findViewById(R.id.titrecategory);
+        text_prix = (TextView) findViewById(R.id.priceservice);
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_service_detail, container, false);
     }
-     public static void refreshArrayListViewData( String id_service,String titre ,String active,String description,String address,String id_category_service,String price)
-     {
-         //Toast.makeText(act,"lisyee."+address, Toast.LENGTH_LONG).show();
-         titre_texte.setText(titre);
-         description_texte.setText("description");
-         texteview_address.setText(address);
-         texteview_category.setText(id_category_service);
-         text_prix.setText(price);
-     }
+
+
+    public static void refreshArrayListViewData( String id_service,String titre ,String active,String description,String address,String id_category_service,String price)
+    {
+        //Toast.makeText(act,"lisyee."+address, Toast.LENGTH_LONG).show();
+        titre_texte.setText(titre);
+        description_texte.setText("description");
+        texteview_address.setText(address);
+        texteview_category.setText(id_category_service);
+        text_prix.setText(price);
+    }
 
 
     private class HttGetDetailService extends AsyncTask<String, Void, String> {
@@ -130,7 +107,7 @@ public class ServiceDetailFragment extends android.app.Fragment {
             try {
                 JSONObject jsonRootObject = new JSONObject(responseUrl);
                 if (jsonRootObject.optString("error").toString().equals("1")) {
-                    Toast.makeText(getActivity(), "Error :" + jsonRootObject.optString("message").toString(), Toast.LENGTH_LONG).show();
+                    Toast.makeText(myContext, "Error :" + jsonRootObject.optString("message").toString(), Toast.LENGTH_LONG).show();
                 } else {
                     jsonRootObject.optString("error").toString();
                     id_service = jsonRootObject.optString("id_service").toString();
@@ -146,10 +123,8 @@ public class ServiceDetailFragment extends android.app.Fragment {
             } catch (JSONException e) {
                 e.printStackTrace();
             }
-            Log.d("Debug responseUrl: ",responseUrl );
-            ServiceDetailFragment.refreshArrayListViewData(id_service, titre, active, description, address, id_category_service, price);
-
-
+            Log.d("Debug responseUrl: ", responseUrl);
+            //ServiceDetailFragment.refreshArrayListViewData(id_service, titre, active, description, address, id_category_service, price);
 
         }
     }
@@ -180,7 +155,7 @@ public class ServiceDetailFragment extends android.app.Fragment {
                 else{
                     Toast.makeText(myContext, jsonRootObject.optString("message").toString(), Toast.LENGTH_LONG).show();
                     Intent intent = new Intent(myContext, OrderDetailActivity.class);
-                    String id_order = "";
+                    String id_order = jsonRootObject.optString("order_id").toString();
                     intent.putExtra("id_order", id_order);
                     myContext.startActivity(intent);
                 }

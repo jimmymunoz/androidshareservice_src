@@ -136,7 +136,7 @@ public class OrderDetailActivity extends Activity {
                     );
 
                     TextView tmp1 = (TextView) findViewById(R.id.textViewTitre);
-                    tmp1.setText("Code de Commande: " + tmpObj.id_order);
+                    tmp1.setText("Commande: " + tmpObj.id_order);
 
 
                     TextView textViewtitre = (TextView) findViewById(R.id.textViewtitre);
@@ -147,7 +147,7 @@ public class OrderDetailActivity extends Activity {
                     descriptionTmp.setText("" + tmpObj.description);
 
                     TextView payment_codeTmp = (TextView) findViewById(R.id.textViewpayment_code);
-                    payment_codeTmp.setText(tmpObj.payment_code);
+                    payment_codeTmp.setText("Payment code" + tmpObj.payment_code);
 
                     TextView codeTmp = (TextView) findViewById(R.id.textViewcode);
                     codeTmp.setText("Code de validation: (" + tmpObj.code + ")");

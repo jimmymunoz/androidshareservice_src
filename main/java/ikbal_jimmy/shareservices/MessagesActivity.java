@@ -32,7 +32,7 @@ public class MessagesActivity extends AppCompatActivity {
     String id_user_logged;
     static ArrayAdapter<Message> adapter;
     static ArrayList<Message> listMessages;
-    private int refreshTime = 3000;//milliseconds 3 segs
+    private int refreshTime = 1000;//milliseconds 1 segs
     private boolean activity_running = false;//Jimmy: To validate u¡if is running
     static ArrayList<String> listMessageIds = new ArrayList<String>();//Jimmy: Update ids
 

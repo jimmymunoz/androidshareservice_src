@@ -1,6 +1,8 @@
 package ikbal_jimmy.shareservices;
 
 import android.content.Context;
+import android.location.Location;
+import android.location.LocationManager;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
 import android.os.AsyncTask;
@@ -16,6 +18,7 @@ import org.json.JSONObject;
 
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 
 public class AddSerciceActivity extends AppCompatActivity {
     private Context myContext;
@@ -24,6 +27,18 @@ public class AddSerciceActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         myContext = this;
         setContentView(R.layout.activity_add__service);
+        LocationManager manager =
+                (LocationManager)getSystemService(Context.LOCATION_SERVICE);
+        List<String> fournisseurs = manager.getAllProviders();
+        for (String f : fournisseurs) {
+            Toast.makeText(getApplicationContext(), "" + f, Toast.LENGTH_SHORT).show();
+
+                Location localisation = manager.getLastKnownLocation("gps");
+                Toast.makeText(getApplicationContext(), "Latitude" +
+                        localisation.getLatitude(), Toast.LENGTH_SHORT).show();
+                Toast.makeText(getApplicationContext(), "Longitude" +
+                        localisation.getLongitude(), Toast.LENGTH_SHORT).show();
+            }
 
 
         findViewById(R.id.buttonPublish).
@@ -106,7 +121,8 @@ public class AddSerciceActivity extends AppCompatActivity {
                     Toast.makeText(myContext, "Error :" + jsonRootObject.getJSONObject("message").toString(), Toast.LENGTH_LONG).show();
                 }
                 else{
-                    Toast.makeText(myContext, "" + jsonRootObject.getJSONObject("message").toString(), Toast.LENGTH_LONG).show();
+                    Toast.makeText(myContext,"Votre service a  été bien  enreistré ", Toast.LENGTH_LONG).show();
+
                 }
             } catch (JSONException e) {
                 e.printStackTrace();

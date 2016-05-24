@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="action_settings">Settings</string>
+    <string name="hello_world">Salut Jimmy </string>
+    <string name="Name">Prenom</string>
+    <string name="LastName">Nom</string>
+    <string name="Competences">Competences</string>
+    <string name="ShareService">proposé un service </string>
+        <string name="app_name">Partage de  service</string>
+        <string name="message"> Message</string>
+        <string name="search"> Recherche</string>
+        <string name="shareService"> Partage service</string>
+        <string name="Registe"> Senregister</string>
+        <string name="signin"> Sidentifier </string>
+        <string name="Signout">Se deconecter </string>
+        <string name="Profil">Profil </string>
+        <string name="Emailadress">Adresse  Email </string>
+        <string name="Passeword"> Mot de passe </string>
+        <string name="name"> Nom  </string>
+        <string name="adress">Adresse</string>
+        <string name="contactprovide">Contact provide</string>
+        <string name="Payment">payement</string>
+        <string name="categorie">categorie</string>
+</resources>

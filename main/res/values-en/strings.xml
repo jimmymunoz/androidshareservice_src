@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Share Services App</string>
+    <string name="message"> Message</string>
+    <string name="search"> Search</string>
+    <string name="shareService"> ShareService</string>
+    <string name="Registe"> Registre</string>
+    <string name="signin"> Sign in </string>
+    <string name="Signout"> Sign  out </string>
+    <string name="Profil">Profil </string>
+    <string name="Emailadress">Email Adresse </string>
+    <string name="Passeword">Passeword </string>
+    <string name="name">name </string>
+    <string name="adress">Adresse</string>
+    <string name="contactprovide">Contact provide</string>
+    <string name="Payment">payment</string>
+    <string name="categorie">categorie</string>
+
+
+
+
+</resources>

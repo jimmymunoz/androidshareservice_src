@@ -131,7 +131,7 @@ public class ValidateCodeActivity extends AppCompatActivity implements SensorEve
         @Override
         protected String doInBackground(String... params) {
             String urladress = ConstValue.WEB_SERVICE_URL + "order_validate_code";
-            paramspost.put("str_list_id_message", params[0]);
+            paramspost.put("code", params[0]);
 
             Log.d("Post ", "Request params :" + params[0]);
             String responsePost = RestHelper.executePOST(urladress, paramspost);

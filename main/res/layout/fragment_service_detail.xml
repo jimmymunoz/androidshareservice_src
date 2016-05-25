@@ -21,6 +21,12 @@
                 android:src="@drawable/laverie"
                 android:scaleType="centerCrop"
                 android:layout_weight="1.19" />
+            <TextView
+                android:id="@+id/txt_publie_par"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="pseudo"
+                />
 
             <TextView
                 android:id="@+id/titreservice"
@@ -38,11 +44,24 @@
                 android:text="Service de Netoyage"
                  />
 
+
             <TextView
                 android:id="@+id/adresseservice"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="230, Rue de triolet"
+                />
+            <TextView
+                android:id="@+id/textcity"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Montpellier"
+                />
+            <TextView
+                android:id="@+id/publication_date"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="date"
                 />
 
             <TextView

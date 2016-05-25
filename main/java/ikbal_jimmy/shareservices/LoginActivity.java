@@ -15,7 +15,6 @@ import android.widget.Toast;
 import org.json.JSONException;
 import org.json.JSONObject;
 
-import java.util.ArrayList;
 import java.util.HashMap;
 
 public class LoginActivity extends AppCompatActivity {
@@ -71,10 +70,7 @@ public class LoginActivity extends AppCompatActivity {
         // onPostExecute displays the results of the AsyncTask.
         @Override
         protected void onPostExecute(String responseUrl) {
-            //Toast.makeText(myContext, "Regsiter Response :" + responseUrl, Toast.LENGTH_LONG).show();
 
-
-            ArrayList<ServiceShare> ListService = new ArrayList<ServiceShare>();
             try {
                 JSONObject jsonRootObject = new JSONObject(responseUrl);
                 if( jsonRootObject.optString("error").toString().equals("1") ){

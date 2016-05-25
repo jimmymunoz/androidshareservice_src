@@ -9,8 +9,15 @@ import android.os.AsyncTask;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
+import android.widget.EditText;
+import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
+
+import com.nostra13.universalimageloader.core.DisplayImageOptions;
+import com.nostra13.universalimageloader.core.ImageLoader;
+import com.nostra13.universalimageloader.core.assist.ImageScaleType;
+import com.nostra13.universalimageloader.core.display.SimpleBitmapDisplayer;
 
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -28,6 +35,14 @@ public class ServiceDetailActivity extends Activity {
     static TextView texteview_address;
     static TextView texteview_category;
     static TextView text_prix;
+    static TextView txt_publie_par;
+    static TextView textcity;
+    static TextView tx_imagecategory;
+    static TextView txt_publication_date;
+    public static String id_reciver = "";
+    DisplayImageOptions options;
+    //ImageLoaderConfiguration imgconfig;
+
     Context myContext;
 
     @Override
@@ -37,7 +52,7 @@ public class ServiceDetailActivity extends Activity {
 
         act = this;
         myContext = this;
-        setTitle("Service de laverie");
+        //setTitle("Service de laverie");
 
         Intent intentMain = getIntent();
         Bundle extras = intentMain.getExtras();
@@ -63,6 +78,29 @@ public class ServiceDetailActivity extends Activity {
                 }
             });
 
+        findViewById(R.id.button_start_coneration).
+                setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        EditText editTextMessage = (EditText) findViewById(R.id.editText1);
+                        String messageText = editTextMessage.getText().toString();
+
+                        if (messageText.length() > 0) {//Validation Message
+
+                            ConnectivityManager connMgr = (ConnectivityManager) getSystemService(Context.CONNECTIVITY_SERVICE);
+                            NetworkInfo networkInfo = connMgr.getActiveNetworkInfo();
+                            if (networkInfo != null && networkInfo.isConnected()) {
+                                editTextMessage.setText("");//Clear message
+                                new HttpSendMessageTask().execute(messageText, id_reciver);
+                            } else {
+                                Toast.makeText(myContext, "No network connection available.", Toast.LENGTH_LONG).show();
+                            }
+                        } else {
+                            Toast.makeText(myContext, "Le message ne peut pas être vide", Toast.LENGTH_LONG).show();
+                        }
+                    }
+                });
+
 
         ConnectivityManager connMgr = (ConnectivityManager) getSystemService(Context.CONNECTIVITY_SERVICE);
         NetworkInfo networkInfo = connMgr.getActiveNetworkInfo();
@@ -76,6 +114,23 @@ public class ServiceDetailActivity extends Activity {
         texteview_address = (TextView) findViewById(R.id.adresseservice);
         texteview_category = (TextView)findViewById(R.id.titrecategory);
         text_prix = (TextView) findViewById(R.id.priceservice);
+        text_prix = text_prix = (TextView) findViewById(R.id.priceservice);
+        txt_publie_par = (TextView) findViewById(R.id.txt_publie_par);
+        textcity  = (TextView) findViewById(R.id.textcity);
+        //tx_imagecategory = (TextView) findViewById(R.id.priceservice);
+        txt_publication_date = (TextView) findViewById(R.id.publication_date);
+
+        options = new DisplayImageOptions.Builder()
+                .showImageOnLoading(R.drawable.ic_launcher)
+                .showImageForEmptyUri(R.drawable.ic_launcher)
+                .showImageOnFail(R.drawable.ic_launcher)
+                .cacheInMemory(true)
+                .cacheOnDisk(true)
+                .considerExifParams(true)
+                .displayer(new SimpleBitmapDisplayer())
+                .imageScaleType(ImageScaleType.EXACTLY)
+                .build();
+
         // Inflate the layout for this fragment
     }
 
@@ -115,6 +170,10 @@ public class ServiceDetailActivity extends Activity {
             String address = "";
             String id_category_service = "";
             String price = "";
+            String pseudo = "";
+            String imagecategory = "";
+            String publication_date = "";
+            String city = "";
 
             try {
                 JSONObject jsonRootObject = new JSONObject(responseUrl);
@@ -127,16 +186,39 @@ public class ServiceDetailActivity extends Activity {
                     active = jsonRootObject.optString("active").toString();
                     description = jsonRootObject.optString("description").toString();
                     address = jsonRootObject.optString("address").toString();
-                    id_category_service = jsonRootObject.optString("id_category_service").toString();
+                    id_category_service = jsonRootObject.optString("name").toString();
                     price = jsonRootObject.optString("price").toString();
-                    Log.d("Debug service", "id_service: " + id_service + " titre: " + titre + " active: " + active+ " description: " + description+ " address: " + address);
+                    pseudo = jsonRootObject.optString("pseudo").toString();
+                    publication_date = jsonRootObject.optString("publication_date").toString();
+                    imagecategory = jsonRootObject.optString("image").toString();
 
+                    ImageView imgIcon = (ImageView) findViewById(R.id.imageView1);
+                    ImageLoader.getInstance().displayImage(ConstValue.IMAGE_PATH+ imagecategory, imgIcon, options);
+
+                    city = jsonRootObject.optString("city").toString();
+
+                    Log.d("Debug service", "id_service: " + id_service + " titre: " + titre + " active: " + active + " description: " + description + " address: " + address);
+
+                    titre_texte.setText(titre);
+                    description_texte.setText(description);
+                    texteview_address.setText(address);
+                    texteview_category.setText(id_category_service);
+
+                    txt_publie_par.setText(id_category_service);
+                    txt_publie_par.setText(pseudo);
+                    textcity.setText(city);
+                    //tx_imagecategory.setText(pseudo);
+                    txt_publication_date.setText(publication_date);
+
+
+                    text_prix.setText(price + " €");
+                    id_reciver = jsonRootObject.optString("id_provider").toString();
                 }
             } catch (JSONException e) {
                 e.printStackTrace();
             }
-            Log.d("Debug responseUrl: ", responseUrl);
-            //ServiceDetailFragment.refreshArrayListViewData(id_service, titre, active, description, address, id_category_service, price);
+            //Log.d("Debug responseUrl: ", responseUrl);
+            //ServiceDetailActivity.refreshArrayListViewData(id_service, titre, active, description, address, id_category_service, price);
 
         }
     }
@@ -171,6 +253,45 @@ public class ServiceDetailActivity extends Activity {
                     intent.putExtra("id_order", id_order);
                     myContext.startActivity(intent);
                 }
+            } catch (JSONException e) {
+                e.printStackTrace();
+            }
+        }
+    }
+
+    private class HttpSendMessageTask extends AsyncTask<String, Void, String> {
+        private HashMap<String,String> paramspost = new HashMap<String,String>();
+        String id_conversation;
+
+        @Override
+        protected String doInBackground(String... params) {
+            String urladress = ConstValue.WEB_SERVICE_URL + "messages";
+            //id_user_logged = params[3];
+            paramspost.put("text", params[0]);
+            paramspost.put("id_reciver",params[1]);
+            //paramspost.put("id_user_logged",params[3]);
+
+            Log.d("Post ", "Request params :" + params[0] + " - " + params[1] + " -");
+            String responsePost = RestHelper.executePOST(urladress, paramspost);
+            Log.d("Post", "Response  :" + responsePost);
+            return responsePost;
+        }
+
+        // onPostExecute displays the results of the AsyncTask.
+        @Override
+        protected void onPostExecute(String responseUrl) {
+            try {
+                JSONObject jsonRootObject = new JSONObject(responseUrl);
+                if( jsonRootObject.optString("error").toString().equals("1") ){
+                    Toast.makeText(myContext, "Error :" + jsonRootObject.optString("message").toString(), Toast.LENGTH_LONG).show();
+                }
+                else{
+                    Toast.makeText(myContext, "Message envoyé: " + jsonRootObject.optString("message").toString(), Toast.LENGTH_LONG).show();
+                    Intent intent = new Intent(myContext, ConversationsActivity.class);
+                    myContext.startActivity(intent);
+                    //new HttGetConversationMessagesTask().execute(id_conversation, id_user_logged);
+                }
+
             } catch (JSONException e) {
                 e.printStackTrace();
             }
